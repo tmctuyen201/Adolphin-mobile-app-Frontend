@@ -26,7 +26,7 @@ const LogInScreens = ({ navigation }: any) => {
         }}
       >
         <Image
-          source={require("D:/project/adolphin-app/adolphin-app/assets/Artboard1copy.png")}
+          source={require("../../assets/Artboard1copy.png")}
           style={{ width: 250, height: 250 }}
         />
       </View>
