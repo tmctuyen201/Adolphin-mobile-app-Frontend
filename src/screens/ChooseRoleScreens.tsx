@@ -18,6 +18,7 @@ const ChooseRoleScreens = () => {
           <Image
             source={require("../../assets/Artboard1copy.png")}
             style={{ width: 200, height: 200 }}
+            
           />
           <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
             Student
