@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
+import ScrollViewItem from "../../components/ScrollViewItem";
 import StatusBarLight from "../../components/StatusBarLight";
 import { AntDesign } from "@expo/vector-icons";
 
