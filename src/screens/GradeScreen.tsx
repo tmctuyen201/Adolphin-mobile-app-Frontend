@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import { View, Text, Image, ScrollView, StyleSheet } from "react-native";
-import DataTable from "react-native-table-component";
-
 import {
   Table,
   Row,
   Rows,
-  TableWrapper,
-  Col,
-  Cell,
 } from "react-native-table-component";
 
 const styles1 = StyleSheet.create({

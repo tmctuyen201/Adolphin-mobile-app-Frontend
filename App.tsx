@@ -1,7 +1,6 @@
 import React from "react";
 import MyStack from "./src/navigation/stack";
-import GradeScreen from "./src/screens/GradeScreen";
-import PracticeScreen from "./src/screens/PracticeScreen";
+import FeedbackScreen from "./src/screens/FeedbackScreen";
 export default function App() {
-  return <GradeScreen/>;
+  return <FeedbackScreen/>;
 }
