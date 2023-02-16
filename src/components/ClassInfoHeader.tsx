@@ -2,7 +2,7 @@
 //CHUA XONG
 
 import React from 'react';
-import { View, StyleSheet, Text, Platform, Image, Dimensions } from "react-native";
+import { View, StyleSheet, Text, Platform, Dimensions } from "react-native";
 import { EvilIcons } from '@expo/vector-icons';
 
 

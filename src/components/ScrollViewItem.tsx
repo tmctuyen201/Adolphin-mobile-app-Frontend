@@ -1,7 +1,7 @@
 //Hien thi item co style cho scrollview,... nen them animation, onclick
 //CHUA XONG
 import React from 'react';
-import { View, StyleSheet, Text, Platform, Image, Dimensions } from "react-native";
+import { View, StyleSheet, Text, Platform, Dimensions } from "react-native";
 
 type ScrollViewItemProps = {
     itemTitle: string;

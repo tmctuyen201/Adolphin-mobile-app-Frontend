@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  StatusBar,
   Platform,
   Dimensions,
 } from "react-native";
@@ -14,8 +13,6 @@ import { AntDesign } from "@expo/vector-icons";
 
 //TODO Lam` task thanh component ScrollViewItem
 const Task = () => {
-  var width = Dimensions.get("window").width; //full width
-  var height = Dimensions.get("window").height; //full height
   
 
   return (

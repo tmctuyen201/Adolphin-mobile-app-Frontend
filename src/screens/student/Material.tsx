@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  StatusBar,
   Platform,
   Dimensions,
 } from "react-native";
@@ -14,7 +13,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ScrollViewItem from "../../components/ScrollViewItem";
 
 var width = Dimensions.get("window").width; //full width
-var height = Dimensions.get("window").height; //full height
 
 const Material = () => {
   return (
