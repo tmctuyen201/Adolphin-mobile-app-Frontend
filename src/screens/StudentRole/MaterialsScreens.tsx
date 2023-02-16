@@ -2,15 +2,16 @@ import React from "react";
 import { View, Text, StyleSheet, Platform, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
-import StatusBarLight from "../../components/StatusBarLight";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ScrollViewItem from "../../components/ScrollViewItem";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 var width = Dimensions.get("window").width; //full width
 
 const MaterialsScreens = ({ navigation }: any) => {
   return (
     <View>
+      <SafeAreaView style={{ flex:0, backgroundColor: '#343a40' }}/>
       <ClassInfoHeader
         className="A5"
         courseName="MAS"
