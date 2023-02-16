@@ -1,6 +1,4 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
-
 import React from "react";
 import HomeScreens from "../screens/StudentRole/HomeScreens";
 import MyTabs from "./bottomTabs";
