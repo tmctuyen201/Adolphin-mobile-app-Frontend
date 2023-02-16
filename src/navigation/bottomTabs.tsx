@@ -1,5 +1,5 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import FeedBackScreens from "../screens/StudentRole/FeedBackScreens";
+import FeedbackScreens from "../screens/StudentRole/FeedbackScreens";
 import GradeScreens from "../screens/StudentRole/GradeScreens";
 import MaterialsScreens from "../screens/StudentRole/MaterialsScreens";
 import PracticeScreens from "../screens/StudentRole/PracticeScreens";
@@ -36,7 +36,7 @@ const MyTabs = () => {
       />
       <Tab.Screen
         name="Feedback"
-        component={FeedBackScreens}
+        component={FeedbackScreens}
         options={{
           tabBarIcon: () => (
             <MaterialIcons name="feedback" size={24} color="black" />
