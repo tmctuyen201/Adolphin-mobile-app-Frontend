@@ -5,7 +5,6 @@ import React from "react";
 import ChooseRoleScreens from "../screens/ChooseRoleScreens";
 import LogInScreens from "../screens/LogInScreens";
 import MyDrawer from "./drawer";
-import MyTabs from "./bottomTabs";
 
 const Stack = createNativeStackNavigator();
 

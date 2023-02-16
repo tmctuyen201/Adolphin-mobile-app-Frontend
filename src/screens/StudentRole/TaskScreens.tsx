@@ -1,31 +1,106 @@
 import React from "react";
-import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Platform, Dimensions } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import ClassInfoHeader from "../../components/ClassInfoHeader";
+import { AntDesign } from "@expo/vector-icons";
 
+//TODO Lam` task thanh component ScrollViewItem
 const TaskScreens = ({ navigation }: any) => {
   return (
-    <View style={styles.MenuTouchableContainer}>
-      <TouchableOpacity
-        style={styles.MenuTouchable}
-        onPress={() => navigation.openDrawer()}
-      >
-        <Image
-          source={require("../../../assets/menu.png")}
-          style={styles.Image}
-        />
-      </TouchableOpacity>
+    <View style={{ flex: 1 }}>
+      <ClassInfoHeader
+        className="1"
+        courseName="IS"
+        title="Tasks"
+        navigation={navigation}
+      />
+      <Text style={{ textAlign: "center", paddingTop: 20, fontSize: 18 }}>
+        Click on a task to see Info / Perform action{" "}
+      </Text>
+      <View style={styles.scrollContainer}>
+        <ScrollView>
+          <View style={styles.task}>
+            <View>
+              <Text style={styles.taskTitle}>Offline Test L1</Text>
+              <Text style={styles.taskInfo}>Start: 12:00AM | 15/2</Text>
+            </View>
+            <AntDesign name="check" size={50} color="#FFAFCC" style={{}} />
+          </View>
+
+          <View style={styles.task}>
+            <View>
+              <Text style={styles.taskTitle}>Homework L2</Text>
+              <Text style={styles.taskInfo}>Due: 08:00AM | 18/2</Text>
+            </View>
+          </View>
+
+          <View style={styles.task}>
+            <View>
+              <Text style={styles.taskTitle}>Homework L3</Text>
+              <Text style={styles.taskInfo}>Due: 12:00AM | 14/2</Text>
+            </View>
+            <AntDesign name="check" size={50} color="#FFAFCC" style={{}} />
+          </View>
+        </ScrollView>
+      </View>
     </View>
   );
 };
 
 export default TaskScreens;
+
 const styles = StyleSheet.create({
-  ListItemContainer: { alignItems: "center" },
-  Image: { width: 40, height: 40 },
-  MenuTouchable: { padding: 20 },
-  MenuTouchableContainer: {
+  taskTitle: {
+    fontSize: 26,
+    fontFamily:
+      Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
+    color: "#343a40",
+  },
+  taskInfo: {
+    marginTop: 8,
+    fontSize: 15,
+    color: "#343a40",
+  },
+  scrollContainer: {
+    padding: 40,
+    paddingTop: 20,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    height: 800,
+  },
+  task: {
+    padding: 20,
+    paddingLeft: 30,
+    marginTop: 10,
+    marginBottom: 10,
+    backgroundColor: "rgba(189, 224, 254, 0.4)",
+    borderRadius: 30,
+    height: 112,
+    flex: 1,
     flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
   },
-  ImageBackground: { flex: 1 },
-  Touchable: { width: "100%", alignItems: "center" },
+  header: {
+    width: "100%",
+    backgroundColor: "lightpink",
+    height: 80,
+    shadowColor: "#6B4B3E",
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "0.8rem",
+  },
+  headerText: {
+    fontFamily: Platform.OS === "ios" ? "HelveticaNeue" : "Roboto",
+    color: "black",
+    textAlign: "justify",
+    padding: 10,
+    paddingTop: 11,
+    fontSize: 22,
+  },
 });
