@@ -31,6 +31,7 @@ const ChooseRoleScreens = ({ navigation }: any) => {
         <View style={styles.ImageContainer}>
           <Image
             source={require("../../assets/Artboard1copy.png")}
+
             style={styles.Image}
           />
           <Text style={styles.Text}>Teacher</Text>
@@ -38,6 +39,7 @@ const ChooseRoleScreens = ({ navigation }: any) => {
         <View style={styles.ImageContainer}>
           <Image
             source={require("../../assets/Artboard1copy.png")}
+
             style={styles.Image}
           />
           <Text style={styles.Text}>Parents</Text>
@@ -45,6 +47,7 @@ const ChooseRoleScreens = ({ navigation }: any) => {
         <View style={styles.ImageContainer}>
           <Image
             source={require("../../assets/Artboard1copy.png")}
+
             style={styles.Image}
           />
           <Text style={styles.Text}>Admin</Text>

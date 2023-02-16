@@ -7,7 +7,8 @@
     "icon": "./assets/Artboard1copy.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/Artboard1copy.png",
+      "image": "./assets/splash1.png",
+
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -27,7 +28,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/Artboard1copy.png"
     }
   }
 }

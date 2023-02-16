@@ -37,7 +37,6 @@ const LogInScreens = ({ navigation }: any) => {
         >
           Login
         </CustomButton>
-
         <CustomButton backgroundColor="white" color={"black"} width={"80%"}>
           Forgot your password?
         </CustomButton>
