@@ -25,7 +25,7 @@ const TaskScreens = ({ navigation }: any) => {
                 <Text style={styles.taskTitle}>Offline Test L1</Text>
                 <Text style={styles.taskInfo}>Start: 12:00AM | 15/2</Text>
               </View>
-              <AntDesign name="check" size={50} color="#FFAFCC" style={{}} />
+              <AntDesign name="check" size={50} color="#ffafcc" style={{}} />
             </View>
 
             <View style={styles.task}>
@@ -40,7 +40,7 @@ const TaskScreens = ({ navigation }: any) => {
                 <Text style={styles.taskTitle}>Homework L3</Text>
                 <Text style={styles.taskInfo}>Due: 12:00AM | 14/2</Text>
               </View>
-              <AntDesign name="check" size={50} color="#FFAFCC" style={{}} />
+              <AntDesign name="check" size={50} color="#ffafcc" style={{}} />
             </View>
           </ScrollView>
         </View>
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    
     height: 800,
   },
   task: {
@@ -84,27 +84,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-  },
-  header: {
-    width: "100%",
-    backgroundColor: "lightpink",
-    height: 80,
-    shadowColor: "#6B4B3E",
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 2 },
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    gap: "0.8rem",
-  },
-  headerText: {
-    fontFamily: Platform.OS === "ios" ? "HelveticaNeue" : "Roboto",
-    color: "black",
-    textAlign: "justify",
-    padding: 10,
-    paddingTop: 11,
-    fontSize: 22,
   },
   SafeArea: {
     flex: 1,
