@@ -16,7 +16,7 @@ const ChooseRoleScreens = () => {
         </Text>
         <View style={{ paddingTop: 40, alignItems: "center" }}>
           <Image
-            source={require("D:/project/adolphin-app/adolphin-app/assets/Artboard1copy.png")}
+            source={require("../../assets/Artboard1copy.png")}
             style={{ width: 200, height: 200 }}
           />
           <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
@@ -25,7 +25,7 @@ const ChooseRoleScreens = () => {
         </View>
         <View style={{ paddingTop: 40, alignItems: "center" }}>
           <Image
-            source={require("D:/project/adolphin-app/adolphin-app/assets/Artboard1copy.png")}
+            source={require("../../assets/Artboard1copy.png")}
             style={{ width: 200, height: 200 }}
           />
           <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
@@ -34,7 +34,7 @@ const ChooseRoleScreens = () => {
         </View>
         <View style={{ paddingTop: 40, alignItems: "center" }}>
           <Image
-            source={require("D:/project/adolphin-app/adolphin-app/assets/Artboard1copy.png")}
+            source={require("../../assets/Artboard1copy.png")}
             style={{ width: 200, height: 200 }}
           />
           <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
@@ -43,7 +43,7 @@ const ChooseRoleScreens = () => {
         </View>
         <View style={{ paddingTop: 40, alignItems: "center" }}>
           <Image
-            source={require("D:/project/adolphin-app/adolphin-app/assets/Artboard1copy.png")}
+            source={require("../../assets/Artboard1copy.png")}
             style={{ width: 200, height: 200 }}
           />
           <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
