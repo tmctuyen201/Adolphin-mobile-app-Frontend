@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 type CustomButtonProps = {
   children: string;
   backgroundColor: string;
@@ -30,7 +30,8 @@ const CustomButton = ({
           padding: 15,
           backgroundColor: `${backgroundColor}`,
           borderRadius: 10,
-        }} onPress={onPress}
+        }}
+        onPress={onPress}
       >
         <Text
           style={{

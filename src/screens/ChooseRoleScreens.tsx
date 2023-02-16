@@ -1,58 +1,70 @@
 import React from "react";
-import { View, Text, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  ImageBackground,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 
-const ChooseRoleScreens = () => {
+const ChooseRoleScreens = ({ navigation }: any) => {
   return (
     <ScrollView>
-      <View
-        style={{
-          flex: 1,
-          alignItems: "center",
-          backgroundColor: "#F9ABA4",
-        }}
+      <ImageBackground
+        source={require("../../assets/background.jpg")}
+        resizeMode="cover"
+        style={styles.ImageBackground}
       >
-        <Text style={{ fontWeight: "bold", color: "white", fontSize: 22 }}>
-          Choose Role Screens
-        </Text>
-        <View style={{ paddingTop: 40, alignItems: "center" }}>
+        <Text style={styles.Text}>Choose Role Screens</Text>
+        <TouchableOpacity
+          style={styles.Touchable}
+          onPress={() => navigation.navigate("Drawer")}
+        >
           <Image
             source={require("../../assets/Artboard1copy.png")}
-            style={{ width: 200, height: 200 }}
+            style={styles.Image}
           />
-          <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
-            Student
-          </Text>
-        </View>
-        <View style={{ paddingTop: 40, alignItems: "center" }}>
+          <Text style={styles.Text}>Student</Text>
+        </TouchableOpacity>
+        <View style={styles.ImageContainer}>
           <Image
             source={require("../../assets/Artboard1copy.png")}
-            style={{ width: 200, height: 200 }}
+            style={styles.Image}
           />
-          <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
-            Teacher
-          </Text>
+          <Text style={styles.Text}>Teacher</Text>
         </View>
-        <View style={{ paddingTop: 40, alignItems: "center" }}>
+        <View style={styles.ImageContainer}>
           <Image
             source={require("../../assets/Artboard1copy.png")}
-            style={{ width: 200, height: 200 }}
+            style={styles.Image}
           />
-          <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
-            Parents
-          </Text>
+          <Text style={styles.Text}>Parents</Text>
         </View>
-        <View style={{ paddingTop: 40, alignItems: "center" }}>
+        <View style={styles.ImageContainer}>
           <Image
             source={require("../../assets/Artboard1copy.png")}
-            style={{ width: 200, height: 200 }}
+            style={styles.Image}
           />
-          <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
-            Admin
-          </Text>
+          <Text style={styles.Text}>Admin</Text>
         </View>
-      </View>
+      </ImageBackground>
     </ScrollView>
   );
 };
 
 export default ChooseRoleScreens;
+const styles = StyleSheet.create({
+  ImageBackground: { flex: 1, justifyContent: "center", alignItems: "center" },
+  Text: { fontWeight: "bold", color: "white", fontSize: 18 },
+  Image: { width: 200, height: 200 },
+  Touchable: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  ImageContainer: {
+    paddingTop: 40,
+    alignItems: "center",
+  },
+});
