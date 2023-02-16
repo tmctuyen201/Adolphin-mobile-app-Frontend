@@ -22,10 +22,11 @@ const Task = () => {
     <View style={{ flex: 1 }}>
       <StatusBarLight />
       <ClassInfoHeader className="1" courseName="IS" title="Tasks" />
-      <Text style ={{textAlign: 'center', paddingTop: 20}}>Click on a task to see Info / Perform action </Text>
+      <Text style ={{textAlign: 'center', paddingTop: 20, fontSize: 18}}>Click on a task to see Info / Perform action </Text>
 
       <View style={styles.scrollContainer}>
         <ScrollView>
+          
           <View style={styles.task}> 
             <View>
               <Text style={styles.taskTitle}>Offline Test L1</Text>
@@ -60,8 +61,7 @@ export default Task;
 const styles = StyleSheet.create({
   taskTitle: {
     fontSize: 26,
-    fontFamily:
-      Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
+    fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
     color: "#343a40",
   },
   taskInfo: {

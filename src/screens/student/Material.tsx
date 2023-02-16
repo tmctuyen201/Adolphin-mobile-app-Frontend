@@ -10,6 +10,8 @@ import {
 import { ScrollView } from "react-native-gesture-handler";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
 import StatusBarLight from "../../components/StatusBarLight";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import ScrollViewItem from "../../components/ScrollViewItem";
 
 var width = Dimensions.get("window").width; //full width
 var height = Dimensions.get("window").height; //full height
@@ -19,6 +21,7 @@ const Material = () => {
     <View>
       <StatusBarLight />
       <ClassInfoHeader className="A5" courseName="MAS" title="Material" />
+      <Text style ={{textAlign: 'center', paddingTop: 20, fontSize: 18}}>Click on a task to preview </Text>
 
       <View style={styles.scrollContainer}>
         <ScrollView
@@ -28,34 +31,51 @@ const Material = () => {
           snapToAlignment={"center"}
         >
           <View style={styles.horizontalItemContainer}>
-            <View style={styles.horizontalTitleContainer}><Text style = {styles.horizontalTitle}>Lesson Material</Text></View>
-            
+            <View style={styles.horizontalTitleContainer}><Text style={styles.horizontalTitle}>Lesson Material</Text></View>
+
             <ScrollView>
-              <View style={styles.item}>
-                <Text>lmao ez</Text>
-              </View>
+              <ScrollViewItem itemTitle="A Guide to Tuyen" itemInfo="uploaded: 10/2">
+                <MaterialCommunityIcons name="magnify-expand" size={38} color="#343a40" />
+              </ScrollViewItem>
+
+              <ScrollViewItem itemTitle="How: Money works " itemInfo="uploaded: 12/2">
+                <MaterialCommunityIcons name="magnify-expand" size={38} color="#343a40" />
+              </ScrollViewItem>
+
             </ScrollView>
           </View>
 
           <View style={styles.horizontalItemContainer}>
-            <View style={styles.horizontalTitleContainer}><Text style = {styles.horizontalTitle}>Course Material</Text></View>
-            
+            <View style={styles.horizontalTitleContainer}><Text style={styles.horizontalTitle}>Lesson Material</Text></View>
+
             <ScrollView>
-              <View style={styles.item}>
-                <Text>.-.</Text>
-              </View>
+              <ScrollViewItem itemTitle="A Guide to Tuyen" itemInfo="uploaded: 10/2">
+                <MaterialCommunityIcons name="magnify-expand" size={38} color="#343a40" />
+              </ScrollViewItem>
+
+              
+
             </ScrollView>
           </View>
+
         </ScrollView>
       </View>
     </View>
   );
 };
 
+export default Material;
+
 const styles = StyleSheet.create({
+  itemTitle: {
+    fontSize: 26,
+    fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
+    color: "#343a40",
+  },
   item: {
     padding: 20,
-    paddingLeft: 30,
+    paddingLeft: 32,
+    paddingRight: 32,
     margin: 10,
     backgroundColor: "rgba(189, 224, 254, 0.4)",
     borderRadius: 30,
@@ -74,14 +94,14 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     marginRight: 20,
   },
-  horizontalTitle:{
+  horizontalTitle: {
     fontSize: 20,
     fontFamily: Platform.OS === 'ios' ? "HelveticaNeue-Light" : "sans-serif-thin",
   },
-  horizontalTitleContainer:{
+  horizontalTitleContainer: {
     padding: 10,
     alignItems: 'center'
-    
+
   },
   scrollContainer: {
     padding: 40,
@@ -92,4 +112,4 @@ const styles = StyleSheet.create({
     height: 800,
   },
 });
-export default Material;
+

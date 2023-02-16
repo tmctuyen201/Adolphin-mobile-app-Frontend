@@ -16,16 +16,14 @@ var width = Dimensions.get('window').width; //full width
 var height = Dimensions.get('window').height; //full height
 
 const ClassInfoHeader = ({ className, courseName, title }: headerTextProps) => {
-    
-    
     return (
         <View style={styles.header}>
-            
-            <EvilIcons name="navicon" size={50} color="#8C53AC" style = {{paddingTop: 2}} />
 
-            <Text style= {styles.title}>{title}</Text>
+            <EvilIcons name="navicon" size={50} color="#8C53AC" style={{ paddingTop: 2 }} />
 
-            <View style = {styles.headerText}>
+            <Text style={styles.title}>{title}</Text>
+
+            <View style={styles.headerText}>
                 <Text style={styles.classText}>
                     Class {className}
                 </Text>
@@ -42,11 +40,11 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: Platform.OS === 'ios' ? "HelveticaNeue-Thin" : "sans-serif-bold",
         fontSize: 34,
-        
+
     },
     headerText: {
         alignItems: 'flex-end',
-        
+
     },
     classText: {
         fontFamily: Platform.OS === 'ios' ? "HelveticaNeue-Light" : "sans-serif-thin",
@@ -56,7 +54,7 @@ const styles = StyleSheet.create({
     courseText: {
         fontFamily: Platform.OS === 'ios' ? "HelveticaNeue-Thin" : "sans-serif-thin",
         color: "#343a40",
-        
+
         fontSize: 18,
     },
     header: {
@@ -72,8 +70,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         maxWidth: width,
-        
-        
+
+
     }
 })
 
