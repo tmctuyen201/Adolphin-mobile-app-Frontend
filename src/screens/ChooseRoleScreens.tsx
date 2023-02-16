@@ -24,7 +24,7 @@ const ChooseRoleScreens = ({ navigation }: any) => {
         >
           <Image
             source={require("../../assets/Artboard1copy.png")}
-            style={styles.Image}
+            style={{ width: 200, height: 200 }}
           />
           <Text style={styles.Text}>Student</Text>
         </TouchableOpacity>
