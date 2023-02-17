@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Thin" : "Roboto",
     fontSize: 34,
+    color: '#341C26'
   },
   headerText: {
     alignItems: "flex-end",
@@ -59,18 +60,18 @@ const styles = StyleSheet.create({
     fontFamily:
       Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
     fontSize: 26,
-    color: "#343a40",
+    color: "#341C26",
   },
   courseText: {
     fontFamily:
       Platform.OS === "ios" ? "HelveticaNeue-Thin" : "sans-serif-thin",
-    color: "#343a40",
+    color: "#341C26",
 
     fontSize: 18,
   },
   header: {
     padding: 14,
-    backgroundColor: "lightpink",
+    backgroundColor: "#ffafcc",
     height: 80,
     shadowColor: "#6B4B3E",
     shadowOpacity: 0.3,

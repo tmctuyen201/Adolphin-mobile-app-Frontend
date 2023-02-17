@@ -2,15 +2,17 @@ import React from "react";
 import { View, Text, StyleSheet, Platform, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
-import StatusBarLight from "../../components/StatusBarLight";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ScrollViewItem from "../../components/ScrollViewItem";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { AntDesign } from "@expo/vector-icons";
 
-var width = Dimensions.get("window").width; //full width
+var windowWidth = Dimensions.get("window").width; //full width
 
 const MaterialsScreens = ({ navigation }: any) => {
   return (
-    <View>
+    <View style={{ backgroundColor: "white" }}>
+      <SafeAreaView style={{ flex: 0, backgroundColor: "#343a40" }} />
       <ClassInfoHeader
         className="A5"
         courseName="MAS"
@@ -25,11 +27,14 @@ const MaterialsScreens = ({ navigation }: any) => {
         <ScrollView
           horizontal={true}
           decelerationRate={0}
-          snapToInterval={width * 0.8 + 10}
+          snapToInterval={windowWidth}
           snapToAlignment={"center"}
         >
           <View style={styles.horizontalItemContainer}>
             <View style={styles.horizontalTitleContainer}>
+              <View style={styles.arrows}>
+                <AntDesign name="caretright" size={30} color="black" />
+              </View>
               <Text style={styles.horizontalTitle}>Lesson Material</Text>
             </View>
 
@@ -41,7 +46,7 @@ const MaterialsScreens = ({ navigation }: any) => {
                 <MaterialCommunityIcons
                   name="magnify-expand"
                   size={38}
-                  color="#343a40"
+                  color="#ffafcc"
                 />
               </ScrollViewItem>
 
@@ -52,7 +57,7 @@ const MaterialsScreens = ({ navigation }: any) => {
                 <MaterialCommunityIcons
                   name="magnify-expand"
                   size={38}
-                  color="#343a40"
+                  color="#ffafcc"
                 />
               </ScrollViewItem>
             </ScrollView>
@@ -60,18 +65,21 @@ const MaterialsScreens = ({ navigation }: any) => {
 
           <View style={styles.horizontalItemContainer}>
             <View style={styles.horizontalTitleContainer}>
+              <View style={[styles.arrows, {justifyContent: "flex-start"}]}>
+                <AntDesign name="caretleft" size={30} color="black" />
+              </View>
               <Text style={styles.horizontalTitle}>Lesson Material</Text>
             </View>
 
             <ScrollView>
               <ScrollViewItem
-                itemTitle="A Guide to Tuyen"
+                itemTitle="The subtle art"
                 itemInfo="uploaded: 10/2"
               >
                 <MaterialCommunityIcons
                   name="magnify-expand"
                   size={38}
-                  color="#343a40"
+                  color="#ffafcc"
                 />
               </ScrollViewItem>
             </ScrollView>
@@ -87,8 +95,7 @@ export default MaterialsScreens;
 const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 26,
-    fontFamily:
-      Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
+    fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
     color: "#343a40",
   },
   item: {
@@ -105,13 +112,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   horizontalItemContainer: {
-    width: width * 0.8,
+    width: windowWidth,
+    padding: 20,
     display: "flex",
     flex: 1,
     alignContent: "center",
     justifyContent: "center",
     flexDirection: "column",
-    marginRight: 20,
   },
   horizontalTitle: {
     fontSize: 20,
@@ -119,15 +126,25 @@ const styles = StyleSheet.create({
       Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
   },
   horizontalTitleContainer: {
-    padding: 10,
+    paddingBottom: 15,
     alignItems: "center",
   },
   scrollContainer: {
-    padding: 40,
     paddingTop: 20,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     height: 800,
+  },
+  arrows: {
+    position: "absolute",
+    paddingLeft: 20,
+    paddingRight: 20,
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+    flexDirection: "row",
+    maxWidth: windowWidth,
+    width: windowWidth,
   },
 });
