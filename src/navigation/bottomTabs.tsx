@@ -1,5 +1,5 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import FeedbackScreens from "../screens/StudentRole/FeedbackScreens";
+import FeedbackScreens from "../../src/screens/StudentRole/FeedBackScreens";
 import GradeScreens from "../screens/StudentRole/GradeScreens";
 import MaterialsScreens from "../screens/StudentRole/MaterialsScreens";
 import PracticeScreens from "../screens/StudentRole/PracticeScreens";

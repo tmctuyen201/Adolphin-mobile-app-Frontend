@@ -3,6 +3,7 @@ import { View, Text, Image, ScrollView, Button } from "react-native";
 import { Modal, Portal, Provider } from "react-native-paper";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import ClassInfoHeader from "../../components/ClassInfoHeader";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -15,7 +16,7 @@ const MyTabs = () => {
   );
 };
 
-const FeedbackScreens = () => {
+const FeedbackScreens = ({ navigation }: any) => {
   const [countAtten, setAtten] = useState(0);
   const [countLesson, setLesson] = useState(3);
   const [visible, setVisible] = React.useState(false);
@@ -38,28 +39,12 @@ const FeedbackScreens = () => {
         </Modal>
       </Portal>
       <ScrollView>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: "row",
-            borderBottomWidth: 2,
-            marginTop: 20,
-          }}
-        >
-          <Image
-            source={require("../../../assets/Artboard1copy.png")}
-            style={{ width: 90, height: 90, alignItems: "flex-end" }}
-          />
-          <Text
-            style={{
-              textAlignVertical: "bottom",
-              textAlign: "auto",
-              fontSize: 25,
-            }}
-          >
-            Test Class 1 {"\n"}Course: Test Course
-          </Text>
-        </View>
+        <ClassInfoHeader
+          className="1"
+          courseName="IS"
+          title="Feedback"
+          navigation={navigation}
+        />
         <View>
           <Text style={{ fontSize: 25 }}>
             Class Attendance {countAtten}/{countLesson}
