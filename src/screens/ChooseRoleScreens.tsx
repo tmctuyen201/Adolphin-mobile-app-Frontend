@@ -134,7 +134,6 @@ const ChooseRoleScreens = ({navigation}: any) => {
 };
 
 export default ChooseRoleScreens;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
