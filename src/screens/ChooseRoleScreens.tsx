@@ -1,19 +1,15 @@
 import React, { useRef } from "react";
 import {
   View,
-  Text,
   Image,
   ScrollView,
   ImageBackground,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
-  Platform,
   Animated,
   useWindowDimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 var width = Dimensions.get("window").width; //full window width
 
 const ChooseRoleScreensOLD = ({ navigation }: any) => {
@@ -111,7 +107,6 @@ const styles1 = StyleSheet.create({
     textAlign: "center",
   },
 });
-
 const images = [
   {
     id: 1,
@@ -142,10 +137,8 @@ const images = [
 
 const ChooseRoleScreens = ({navigation}: any) => {
   const scrollX = useRef(new Animated.Value(0)).current;
-
   let { width: windowWidth, height: windowHeight } = useWindowDimensions();
   windowHeight = windowHeight - 400;
-
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#343a40" }}>
       <View style={styles.container}>
@@ -200,6 +193,83 @@ const ChooseRoleScreens = ({navigation}: any) => {
           >
             {images.map((image) => {
               return (
+                <Animated.Text
+                  key={image.id}
+                  style={[
+                    styles.textView,
+                    {
+                      transform: [
+                        {
+                          translateY: scrollX.interpolate({
+                            inputRange,
+                            outputRange: [-500, -50, 0],
+                          }),
+                        },
+                      ],
+                    },
+                    {
+                      opacity: scrollX.interpolate({
+                        inputRange,
+                        outputRange: [0, 1, 0],
+                      }),
+                    },
+                    {
+                      color: image.color,
+                    },
+                  ]}
+                >
+                  {image.title}
+                </Animated.Text>
+              );
+            })}
+          </View>
+          <View style={[styles.scrollContainer, { height: windowHeight }]}>
+            <ScrollView
+              horizontal={true}
+              style={styles.scrollContainer}
+              pagingEnabled
+              showsHorizontalScrollIndicator={false}
+              onScroll={Animated.event(
+                [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+                { useNativeDriver: false }
+              )}
+              scrollEventThrottle={16}
+            >
+              {images.map((image, index) => {
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    onPress={() => navigation.navigate("Drawer")}
+                    style={{ width: windowWidth }}
+                    activeOpacity={0.8}
+                  >
+                    <Image source={image.img} style={styles.card} />
+                  </TouchableOpacity>
+                );
+              })}
+            </ScrollView>
+          </View>
+          <View style={styles.indicatorContainer}>
+            {images.map((image, imageIndex) => {
+              const width = scrollX.interpolate({
+                inputRange: [
+                  windowWidth * (imageIndex - 1),
+                  windowWidth * imageIndex,
+                  windowWidth * (imageIndex + 1),
+                ],
+                outputRange: [8, 16, 8],
+                extrapolate: "clamp",
+              });
+
+              return (
+                <Animated.View
+                  key={image.id}
+                  style={[
+                    styles.normalDots,
+                    { width },
+                    { backgroundColor: image.color },
+                  ]}
+                />
                   <TouchableOpacity 
                   onPress={() => navigation.navigate("Drawer")} 
                   style = {{width: windowWidth}}
