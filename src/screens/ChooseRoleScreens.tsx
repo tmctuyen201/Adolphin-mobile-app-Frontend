@@ -53,6 +53,7 @@ const ChooseRoleScreens = ({navigation}: any) => {
             ];
             return (
               <Animated.Text
+                key = {image.id}
                 style={[
                   styles.textView,
                   {
@@ -93,9 +94,10 @@ const ChooseRoleScreens = ({navigation}: any) => {
             )}
             scrollEventThrottle={16}
           >
-            {images.map((image) => {
+            {images.map((image, index) => {
               return (
                   <TouchableOpacity 
+                  key = {index}
                   onPress={() => navigation.navigate("Drawer")} 
                   style = {{width: windowWidth}}
                   activeOpacity = {0.8}>
@@ -119,6 +121,7 @@ const ChooseRoleScreens = ({navigation}: any) => {
 
             return (
               <Animated.View
+                key={image.id}
                 style={[
                   styles.normalDots,
                   { width },
