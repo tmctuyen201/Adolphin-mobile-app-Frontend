@@ -2,12 +2,12 @@ import React from "react";
 import {
   View,
   TouchableOpacity,
-  Image,
   ImageBackground,
   SafeAreaView,
   StyleSheet,
 } from "react-native";
 import ListItem from "../../components/ListItem";
+import MenuButton from "../../components/MenuButton";
 import SearchBar from "../../components/SearchBar";
 
 const HomeScreens = ({ navigation }: any) => {
@@ -19,15 +19,7 @@ const HomeScreens = ({ navigation }: any) => {
         style={styles.ImageBackground}
       >
         <View style={styles.MenuTouchableContainer}>
-          <TouchableOpacity
-            style={styles.MenuTouchable}
-            onPress={() => navigation.openDrawer()}
-          >
-            <Image
-              source={require("../../../assets/menu.png")}
-              style={styles.Image}
-            />
-          </TouchableOpacity>
+          <MenuButton onPress={() => navigation.openDrawer()} />
           <SearchBar onTextChange={() => {}} />
         </View>
         <View style={styles.ListItemContainer}>
