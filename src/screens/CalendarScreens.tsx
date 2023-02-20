@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 const CalendarScreens = () => {
   return (
     <View>
-      <Text> Calendar Screen</Text>
+      <Text>Hello</Text>
     </View>
   );
 };

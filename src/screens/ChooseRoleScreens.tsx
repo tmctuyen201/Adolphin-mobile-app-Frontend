@@ -1,20 +1,16 @@
 import React, { useRef } from "react";
 import {
   View,
-  Text,
   Image,
   ScrollView,
   ImageBackground,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
-  Platform,
   Animated,
   useWindowDimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-var width = Dimensions.get("window").width; //full window width
 const images = [
   {
     id: 1,
@@ -45,10 +41,8 @@ const images = [
 
 const ChooseRoleScreens = ({ navigation }: any) => {
   const scrollX = useRef(new Animated.Value(0)).current;
-
   let { width: windowWidth, height: windowHeight } = useWindowDimensions();
   windowHeight = windowHeight - 400;
-
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#343a40" }}>
       <ImageBackground
@@ -66,6 +60,7 @@ const ChooseRoleScreens = ({ navigation }: any) => {
               ];
               return (
                 <Animated.Text
+                  key={image.id}
                   style={[
                     styles.textView,
                     {
@@ -106,9 +101,10 @@ const ChooseRoleScreens = ({ navigation }: any) => {
               )}
               scrollEventThrottle={16}
             >
-              {images.map((image) => {
+              {images.map((image, index) => {
                 return (
                   <TouchableOpacity
+                    key={index}
                     onPress={() => navigation.navigate("Drawer")}
                     style={{ width: windowWidth }}
                     activeOpacity={0.8}
@@ -133,6 +129,7 @@ const ChooseRoleScreens = ({ navigation }: any) => {
 
               return (
                 <Animated.View
+                  key={image.id}
                   style={[
                     styles.normalDots,
                     { width },

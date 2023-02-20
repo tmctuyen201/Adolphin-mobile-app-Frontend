@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+import MenuButton from "./MenuButton";
 
 type headerTextProps = {
   className: string;
@@ -30,15 +31,8 @@ const ClassInfoHeader = ({
 }: headerTextProps) => {
   return (
     <View style={styles.header}>
-      <TouchableOpacity
-        style={styles.MenuTouchable}
-        onPress={() => navigation.openDrawer()}
-      >
-        <Image source={require("../../assets/menu.png")} style={styles.Image} />
-      </TouchableOpacity>
-
+      <MenuButton onPress={() => navigation.openDrawer()} />
       <Text style={styles.title}>{title}</Text>
-
       <View style={styles.headerText}>
         <Text style={styles.classText}>Class {className}</Text>
         <Text style={styles.courseText}>Course: {courseName}</Text>
@@ -51,7 +45,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Thin" : "Roboto",
     fontSize: 34,
-    color: '#341C26'
+    color: "#341C26",
   },
   headerText: {
     alignItems: "flex-end",
