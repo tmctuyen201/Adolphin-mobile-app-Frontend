@@ -30,14 +30,14 @@ const LogInScreens = ({ navigation }: any) => {
         <InputText placeHolder="User Name" secureTextEntry={false} />
         <InputText placeHolder="Password" secureTextEntry={true} />
         <CustomButton
-          backgroundColor="#3B71F3"
-          color={"white"}
+          backgroundColor="#341c26"
+          color={"#bde0fe"}
           width={"80%"}
           onPress={() => navigation.navigate("ChooseRole")}
         >
           Login
         </CustomButton>
-        <CustomButton backgroundColor="white" color={"black"} width={"80%"}>
+        <CustomButton backgroundColor="#cdb4db" color={"#341c26"} width={"80%"}>
           Forgot your password?
         </CustomButton>
         <CustomButton backgroundColor="#FAE9EA" color={"#DD4D44"} width={"80%"}>

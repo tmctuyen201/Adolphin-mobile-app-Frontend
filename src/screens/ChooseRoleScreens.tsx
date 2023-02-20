@@ -39,108 +39,98 @@ const images = [
   },
 ];
 
-const ChooseRoleScreens = ({ navigation }: any) => {
+const ChooseRoleScreens = ({navigation}: any) => {
   const scrollX = useRef(new Animated.Value(0)).current;
   let { width: windowWidth, height: windowHeight } = useWindowDimensions();
   windowHeight = windowHeight - 400;
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#343a40" }}>
-      <ImageBackground
-        source={require("../../assets/background.jpg")}
-        resizeMode="cover"
-        style={{ flex: 1 }}
-      >
-        <View style={styles.container}>
-          <View style={styles.textAreaContainer}>
-            {images.map((image, imageIndex) => {
-              const inputRange = [
+      <View style={styles.container}>
+        <View style={styles.textAreaContainer}>
+          {images.map((image, imageIndex) => {
+            const inputRange = [
+              windowWidth * (imageIndex - 1),
+              windowWidth * imageIndex,
+              windowWidth * (imageIndex + 1),
+            ];
+            return (
+              <Animated.Text
+                style={[
+                  styles.textView,
+                  {
+                    transform: [
+                      {
+                        translateY: scrollX.interpolate({
+                          inputRange,
+                          outputRange: [-500, -50, 0],
+                        }),
+                      },
+                    ],
+                  },
+                  {
+                    opacity: scrollX.interpolate({
+                      inputRange,
+                      outputRange: [0, 1, 0],
+                    }),
+                  },
+                  {
+                    color: image.color,
+                  },
+                ]}
+              >
+                {image.title}
+              </Animated.Text>
+            );
+          })}
+        </View>
+        <View style={[styles.scrollContainer, { height: windowHeight }]}>
+          <ScrollView
+            horizontal={true}
+            style={styles.scrollContainer}
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onScroll={Animated.event(
+              [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+              { useNativeDriver: false }
+            )}
+            scrollEventThrottle={16}
+          >
+            {images.map((image) => {
+              return (
+                  <TouchableOpacity 
+                  onPress={() => navigation.navigate("Drawer")} 
+                  style = {{width: windowWidth}}
+                  activeOpacity = {0.8}>
+                    <Image source={image.img} style={styles.card} />
+                  </TouchableOpacity> 
+              );
+            })}
+          </ScrollView>
+        </View>
+        <View style={styles.indicatorContainer}>
+          {images.map((image, imageIndex) => {
+            const width = scrollX.interpolate({
+              inputRange: [
                 windowWidth * (imageIndex - 1),
                 windowWidth * imageIndex,
                 windowWidth * (imageIndex + 1),
-              ];
-              return (
-                <Animated.Text
-                  key={image.id}
-                  style={[
-                    styles.textView,
-                    {
-                      transform: [
-                        {
-                          translateY: scrollX.interpolate({
-                            inputRange,
-                            outputRange: [-500, -50, 0],
-                          }),
-                        },
-                      ],
-                    },
-                    {
-                      opacity: scrollX.interpolate({
-                        inputRange,
-                        outputRange: [0, 1, 0],
-                      }),
-                    },
-                    {
-                      color: image.color,
-                    },
-                  ]}
-                >
-                  {image.title}
-                </Animated.Text>
-              );
-            })}
-          </View>
-          <View style={[styles.scrollContainer, { height: windowHeight }]}>
-            <ScrollView
-              horizontal={true}
-              style={styles.scrollContainer}
-              pagingEnabled
-              showsHorizontalScrollIndicator={false}
-              onScroll={Animated.event(
-                [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-                { useNativeDriver: false }
-              )}
-              scrollEventThrottle={16}
-            >
-              {images.map((image, index) => {
-                return (
-                  <TouchableOpacity
-                    key={index}
-                    onPress={() => navigation.navigate("Drawer")}
-                    style={{ width: windowWidth }}
-                    activeOpacity={0.8}
-                  >
-                    <Image source={image.img} style={styles.card} />
-                  </TouchableOpacity>
-                );
-              })}
-            </ScrollView>
-          </View>
-          <View style={styles.indicatorContainer}>
-            {images.map((image, imageIndex) => {
-              const width = scrollX.interpolate({
-                inputRange: [
-                  windowWidth * (imageIndex - 1),
-                  windowWidth * imageIndex,
-                  windowWidth * (imageIndex + 1),
-                ],
-                outputRange: [8, 16, 8],
-                extrapolate: "clamp",
-              });
+              ],
+              outputRange: [8, 16, 8],
+              extrapolate: "clamp",
+            });
 
-              return (
-                <Animated.View
-                  key={image.id}
-                  style={[
-                    styles.normalDots,
-                    { width },
-                    { backgroundColor: image.color },
-                  ]}
-                />
-              );
-            })}
-          </View>
+            return (
+              <Animated.View
+                style={[
+                  styles.normalDots,
+                  { width },
+                  { backgroundColor: image.color },
+                ]}
+              />
+            );
+          })}
         </View>
-      </ImageBackground>
+      </View>
     </SafeAreaView>
   );
 };
@@ -187,13 +177,10 @@ const styles = StyleSheet.create({
   },
   textView: {
     position: "absolute",
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: "Avenir",
-    fontWeight: "bold",
+    fontWeight: "600",
     textAlign: "center",
-    width: "60%",
-    backgroundColor: "white",
-    borderRadius: 15,
-    alignSelf: "center",
+    width: "100%",
   },
 });
