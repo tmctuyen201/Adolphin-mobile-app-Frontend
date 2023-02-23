@@ -20,7 +20,7 @@ const CustomButton = ({
         width: `${width}`,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 30,
+        marginTop: 24,
       }}
     >
       <TouchableOpacity

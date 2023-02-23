@@ -12,7 +12,7 @@ import SearchBar from "../../components/SearchBar";
 
 const HomeScreens = ({ navigation }: any) => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#343a40"}}>
       <ImageBackground
         source={require("../../../assets/background.jpg")}
         resizeMode="cover"
