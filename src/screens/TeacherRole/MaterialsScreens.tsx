@@ -4,7 +4,6 @@ import { ScrollView } from "react-native-gesture-handler";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ScrollViewItem from "../../components/ScrollViewItem";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
 
 var windowWidth = Dimensions.get("window").width; //full width
@@ -64,7 +63,7 @@ const MaterialsScreens = ({ navigation }: any) => {
 
           <View style={styles.horizontalItemContainer}>
             <View style={styles.horizontalTitleContainer}>
-              <View style={[styles.arrows, {justifyContent: "flex-start"}]}>
+              <View style={[styles.arrows, { justifyContent: "flex-start" }]}>
                 <AntDesign name="caretleft" size={30} color="black" />
               </View>
               <Text style={styles.horizontalTitle}>Lesson Material</Text>
@@ -94,7 +93,8 @@ export default MaterialsScreens;
 const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 26,
-    fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
+    fontFamily:
+      Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
     color: "#343a40",
   },
   item: {
