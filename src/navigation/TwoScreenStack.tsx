@@ -1,7 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import HomeScreens from "../screens/StudentRole/HomeScreens";
-import MyTabs from "./bottomTabs";
+import Task from "../screens/TeacherRole/Lesson/Task";
+import StudentTabs from "./StudentBottomTabs";
+import TeacherTabs from "./TeacherBottomTabs";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,8 +16,15 @@ const TwoScreenStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Tabs"
-        component={MyTabs}
+        name="StudentTab"
+        component={StudentTabs}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="TeacherTab"
+        component={TeacherTabs}
         options={{
           headerShown: false,
         }}
