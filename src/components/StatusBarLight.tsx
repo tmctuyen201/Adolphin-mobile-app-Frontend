@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { StyleSheet, View, StatusBar, Platform } from "react-native";
+import { StyleSheet, View, Platform } from "react-native";
 import Constants from "expo-constants";
+import { StatusBar } from "expo-status-bar";
 //https://coolors.co/palette/cdb4db-ffc8dd-ffafcc-bde0fe-a2d2ff
 //status bar khi dien thoai o che do light mode (chu khong phai text tren status bar la` mau` trang)
 class Statusbar extends Component {
   render() {
     return (
       <View style={styles.StatusBar}>
-        <StatusBar translucent barStyle="light-content" />
+        <StatusBar translucent style="light" />
       </View>
     );
   }
