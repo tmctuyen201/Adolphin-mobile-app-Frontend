@@ -15,5 +15,5 @@ const MenuButton = ({ onPress }: MenuButtonProps) => {
 export default MenuButton;
 const styles = StyleSheet.create({
   Image: { width: 40, height: 40 },
-  MenuTouchable: { padding: 20 },
+  MenuTouchable: { paddingLeft: 20, paddingRight: 14 },
 });

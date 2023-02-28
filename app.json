@@ -8,8 +8,8 @@
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash1.png",
-      "resizeMode": "contain",
-      "backgroundColor": "transparent"
+      "resizeMode": "fill",
+      "backgroundColor": "#FFFFFF"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
