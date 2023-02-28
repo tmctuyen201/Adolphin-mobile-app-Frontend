@@ -1,9 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import FeedbackScreens from "../../src/screens/StudentRole/FeedBackScreens";
+import FeedbackScreens from "../screens/StudentRole/FeedBackScreens";
 import GradeScreens from "../screens/StudentRole/GradeScreens";
 import MaterialsScreens from "../screens/StudentRole/MaterialsScreens";
 import PracticeScreens from "../screens/StudentRole/PracticeScreens";
-import TaskScreens from "../screens/StudentRole/TaskScreens";
 import Colors from "../components/Color";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -12,22 +11,23 @@ import {
   TouchableOpacity,
   View,
   StyleSheet,
-  ViewStyle,
-  ViewProps,
   AccessibilityState,
 } from "react-native";
 import Icon from "../components/Icon";
 import * as Animatable from "react-native-animatable";
-import { useRef, useEffect, ReactComponentElement } from "react";
+import { useRef, useEffect } from "react";
 import { GestureResponderEvent } from "react-native-modal/dist/types";
+import AttendanceScreens from "../screens/TeacherRole/AttendanceScreens";
+import LessonStack from "./LessonStack";
+import { Ionicons } from '@expo/vector-icons';
 
 const TabArr = [
   {
-    route: "Tasks",
-    label: "Tasks",
+    route: "Lesson",
+    label: "Lesson",
     type: FontAwesome,
     icon: "tasks",
-    component: TaskScreens,
+    component: LessonStack,
   },
   {
     route: "Materials",
@@ -37,11 +37,18 @@ const TabArr = [
     component: MaterialsScreens,
   },
   {
-    route: "Feedback",
-    label: "Feedback",
+    route: "Attendance",
+    label: "Attendance",
+    type: Ionicons,
+    icon: "person",
+    component: AttendanceScreens,
+  },
+  {
+    route: "Student List",
+    label: "Student List",
     type: MaterialIcons,
-    icon: "feedback",
-    component: FeedbackScreens,
+    icon: "list-alt",
+    component: PracticeScreens,
   },
   {
     route: "Grade",
@@ -51,11 +58,11 @@ const TabArr = [
     component: GradeScreens,
   },
   {
-    route: "Practice",
-    label: "Practice",
+    route: "Feedback",
+    label: "Feedback",
     type: MaterialIcons,
-    icon: "list-alt",
-    component: PracticeScreens,
+    icon: "feedback",
+    component: FeedbackScreens,
   },
 ];
 const Tab = createBottomTabNavigator();
@@ -73,8 +80,6 @@ const animate2 = {
 const circle1 = {
   0: { scale: 0 },
   0.3: { scale: 0.9 },
-  0.5: { scale: 0.2 },
-  0.8: { scale: 0.7 },
   1: { scale: 1 },
 };
 const circle2 = { 0: { scale: 1 }, 1: { scale: 0 } };
@@ -131,7 +136,7 @@ const TabButton = (props: Props) => {
   );
 };
 
-export default function AnimTab1() {
+export default function TeacherTabs() {
   return (
     <Tab.Navigator
       screenOptions={{

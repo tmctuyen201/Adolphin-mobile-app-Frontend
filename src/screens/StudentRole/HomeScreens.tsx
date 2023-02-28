@@ -12,7 +12,7 @@ import SearchBar from "../../components/SearchBar";
 
 const HomeScreens = ({ navigation }: any) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#343a40"}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#343a40" }}>
       <ImageBackground
         source={require("../../../assets/background.jpg")}
         resizeMode="cover"
@@ -25,11 +25,16 @@ const HomeScreens = ({ navigation }: any) => {
         <View style={styles.ListItemContainer}>
           <TouchableOpacity
             style={styles.Touchable}
-            onPress={() => navigation.navigate("Tabs")}
+            onPress={() => navigation.navigate("StudentTab")}
           >
             <ListItem>AI 1705</ListItem>
           </TouchableOpacity>
-          <ListItem>SE 1740</ListItem>
+          <TouchableOpacity
+            style={styles.Touchable}
+            onPress={() => navigation.navigate("TeacherTab")}
+          >
+            <ListItem>SE 1740</ListItem>
+          </TouchableOpacity>
           <ListItem>IT 1650</ListItem>
           <ListItem>IA 1578</ListItem>
           <ListItem>AI 1706</ListItem>

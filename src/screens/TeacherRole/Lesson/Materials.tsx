@@ -1,28 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet, Platform, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import ClassInfoHeader from "../../components/ClassInfoHeader";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import ScrollViewItem from "../../components/ScrollViewItem";
-import { SafeAreaView } from "react-native-safe-area-context";
+import ScrollViewItem from "../../../components/ScrollViewItem";
 import { AntDesign } from "@expo/vector-icons";
-import StatusBarLight from "../../components/StatusBarLight";
 
 var windowWidth = Dimensions.get("window").width; //full width
 
-const MaterialsScreens = ({ navigation }: any) => {
+const Materials = ({ navigation }: any) => {
   return (
     <View style={{ backgroundColor: "white" }}>
-      <ClassInfoHeader
-        className="A5"
-        courseName="MAS"
-        title="Material"
-        navigation={navigation}
-      />
       <Text style={{ textAlign: "center", paddingTop: 20, fontSize: 18 }}>
         Click on a task to preview{" "}
       </Text>
-
       <View style={styles.scrollContainer}>
         <ScrollView
           horizontal={true}
@@ -35,7 +25,7 @@ const MaterialsScreens = ({ navigation }: any) => {
               <View style={styles.arrows}>
                 <AntDesign name="caretright" size={30} color="black" />
               </View>
-              <Text style={styles.horizontalTitle}>Lesson Material</Text>
+              <Text style={styles.horizontalTitle}>Learning Material</Text>
             </View>
 
             <ScrollView>
@@ -65,10 +55,10 @@ const MaterialsScreens = ({ navigation }: any) => {
 
           <View style={styles.horizontalItemContainer}>
             <View style={styles.horizontalTitleContainer}>
-              <View style={[styles.arrows, {justifyContent: "flex-start"}]}>
+              <View style={[styles.arrows, { justifyContent: "flex-start" }]}>
                 <AntDesign name="caretleft" size={30} color="black" />
               </View>
-              <Text style={styles.horizontalTitle}>Lesson Material</Text>
+              <Text style={styles.horizontalTitle}>Teaching Material</Text>
             </View>
 
             <ScrollView>
@@ -90,12 +80,13 @@ const MaterialsScreens = ({ navigation }: any) => {
   );
 };
 
-export default MaterialsScreens;
+export default Materials;
 
 const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 26,
-    fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
+    fontFamily:
+      Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
     color: "#343a40",
   },
   item: {
