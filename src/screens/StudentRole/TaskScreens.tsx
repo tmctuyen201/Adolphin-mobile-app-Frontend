@@ -10,7 +10,7 @@ const TaskScreens = ({ navigation }: any) => {
   return (
     
       <View style={{ flex: 1 , backgroundColor: 'white'}}>
-        <StatusBarLight/>
+        
         <ClassInfoHeader
           className="1"
           courseName="IS"
