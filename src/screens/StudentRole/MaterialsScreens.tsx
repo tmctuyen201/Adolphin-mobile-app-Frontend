@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ScrollViewItem from "../../components/ScrollViewItem";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
+import StatusBarLight from "../../components/StatusBarLight";
 
 var windowWidth = Dimensions.get("window").width; //full width
 
