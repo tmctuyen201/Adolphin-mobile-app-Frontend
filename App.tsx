@@ -1,7 +1,6 @@
 import React from "react";
 import MyStack from "./src/navigation/stack";
 import { useFonts } from "expo-font";
-import TakeAttendanceScreens from "./src/screens/TeacherRole/TakeAttendanceScreens";
 import StatusBarLight from "./src/components/StatusBarLight";
 
 export default function App() {
@@ -18,7 +17,7 @@ export default function App() {
     return (
       <>
         <StatusBarLight />
-        <TakeAttendanceScreens />
+        <MyStack />
       </>
     );
   }
