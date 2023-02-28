@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, Modal, TouchableOpacity } from "react-native";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
-import { DataTable, List, Modal } from "react-native-paper";
-import StatusBarLight from "../../components/StatusBarLight";
+import { DataTable, Provider } from "react-native-paper";
+import { Text } from "react-native-paper";
 
 const students = [
   {
@@ -49,29 +49,13 @@ const students = [
 
 const StudentList = () => {
   const [visibility, setVisibility] = useState(false);
-  const [studentInfo, setStudentInfo] = useState(null);
-
-  const showInfo = (student: any) => {
-    setStudentInfo(student);
+  const [id, setId] = useState<number>();
+  const showInfo = (id: number) => {
+    setId(id);
     setVisibility(true);
-    const studentList = new Promise(()=>{
-    });
-
-    return undefined;
   };
   return (
     <View>
-      {/* <Modal
-        visible={visibility}
-        onDismiss={() => setVisibility(false)}
-        contentContainerStyle={styles.modalContent}
-      >
-        <View>
-          <Text>Picture</Text>
-          
-        </View>
-      </Modal> */}
-
       <ClassInfoHeader
         className="A5"
         courseName="MAS"
@@ -96,9 +80,9 @@ const StudentList = () => {
           <DataTable.Title numeric>Parent PhoneNum</DataTable.Title>
         </DataTable.Header>
 
-        {students.map((student) => {
+        {students.map((student, index) => {
           return (
-            <DataTable.Row key={student.id} onPress={showInfo}>
+            <DataTable.Row key={student.id} onPress={() => showInfo(index)}>
               <DataTable.Cell>
                 <Image source={student.img} style={styles.item} />
               </DataTable.Cell>
@@ -109,6 +93,34 @@ const StudentList = () => {
           );
         })}
       </DataTable>
+      <View>
+        {students.map((student, index) => {
+          return (
+            <View style={styles.centeredView}>
+              {id == index && (
+                <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={visibility}
+                  onRequestClose={() => setVisibility(false)}
+
+                >
+                  <View style={styles.modalView}>
+                    <Image source={student.img} style={styles.icon} />
+                    <Text>{student.name}</Text>
+                    <Text>{student.email}</Text>
+                    <Text>{student.parentPhone}</Text>
+                    <Text>{student.parentName}</Text>
+                  </View>
+                  <TouchableOpacity onPress={() => setVisibility(!visibility)}>
+                    <Text>Close</Text>
+                  </TouchableOpacity>
+                </Modal>
+              )}
+            </View>
+          );
+        })}
+      </View>
     </View>
   );
 };
@@ -118,6 +130,47 @@ const styles = StyleSheet.create({
     width: 34,
     height: 34,
   },
-  modalContent: {},
+  modalContent: {
+    zIndex: 3,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 100,
+  },
+  icon: {
+    width: 150,
+    height: 150,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  contentContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    marginTop: 150,
+  },
+  modalContainer: {
+    backgroundColor: "white",
+    width: 350,
+    height: 300,
+    marginTop: 80,
+    marginLeft: 33,
+  },
 });
 export default StudentList;
