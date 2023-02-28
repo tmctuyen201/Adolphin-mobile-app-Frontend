@@ -2,7 +2,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import FeedbackScreens from "../screens/StudentRole/FeedBackScreens";
 import GradeScreens from "../screens/StudentRole/GradeScreens";
 import MaterialsScreens from "../screens/StudentRole/MaterialsScreens";
-import PracticeScreens from "../screens/StudentRole/PracticeScreens";
 import Colors from "../components/Color";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -20,6 +19,7 @@ import { GestureResponderEvent } from "react-native-modal/dist/types";
 import AttendanceScreens from "../screens/TeacherRole/AttendanceScreens";
 import LessonStack from "./LessonStack";
 import { Ionicons } from '@expo/vector-icons';
+import StudentList from "../screens/TeacherRole/StudentList";
 
 const TabArr = [
   {
@@ -48,7 +48,7 @@ const TabArr = [
     label: "Student List",
     type: MaterialIcons,
     icon: "list-alt",
-    component: PracticeScreens,
+    component: StudentList,
   },
   {
     route: "Grade",

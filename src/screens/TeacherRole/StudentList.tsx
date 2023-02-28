@@ -1,19 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
-import { DataTable, List } from "react-native-paper";
+import { DataTable, List, Modal } from "react-native-paper";
 import StatusBarLight from "../../components/StatusBarLight";
 
-
 const students = [
-    {id: 1, img: require("../../../assets/rolesIcon/student.png"), name: "Hoang Duc", email: "mmotkim@gmail.com", parentName: "Hoa", parentPhone: 84941391259},
-    {id: 2, img: require("../../../assets/rolesIcon/admin.png"), name: "Hoang Tuyen", email: "mmotkim@gmail.com", parentName: "Hoa", parentPhone: 84946251525},
-    {id: 3, img: require("../../../assets/rolesIcon/teacher.png"), name: "Hoang Duc", email: "mmotkim@gmail.com", parentName: "Hoa", parentPhone: 84941391259},   
+  {
+    id: 1,
+    img: require("../../../assets/rolesIcon/student.png"),
+    name: "Hoang Duc",
+    email: "mmotkim@gmail.com",
+    parentName: "Hoa",
+    parentPhone: 84941391259,
+  },
+  {
+    id: 2,
+    img: require("../../../assets/rolesIcon/admin.png"),
+    name: "Hoang Tuyen",
+    email: "mmotkim@gmail.com",
+    parentName: "Hoa",
+    parentPhone: 84946251525,
+  },
+  {
+    id: 3,
+    img: require("../../../assets/rolesIcon/teacher.png"),
+    name: "Hoang Duc",
+    email: "mmotkim@gmail.com",
+    parentName: "Hoa",
+    parentPhone: 84941391259,
+  },
+  {
+    id: 4,
+    img: require("../../../assets/rolesIcon/teacher.png"),
+    name: "Hoang Duc",
+    email: "mmotkim@gmail.com",
+    parentName: "Hoa",
+    parentPhone: 84941391259,
+  },
+  {
+    id: 5,
+    img: require("../../../assets/rolesIcon/teacher.png"),
+    name: "Hoang Duc",
+    email: "mmotkim@gmail.com",
+    parentName: "Hoa",
+    parentPhone: 84941391259,
+  },
 ];
 
 const StudentList = () => {
+  const [visibility, setVisibility] = useState(false);
+  const [studentInfo, setStudentInfo] = useState(null);
+
+  const showInfo = (student: any) => {
+    setStudentInfo(student);
+    setVisibility(true);
+    const studentList = new Promise(()=>{
+    });
+
+    return undefined;
+  };
   return (
     <View>
+      {/* <Modal
+        visible={visibility}
+        onDismiss={() => setVisibility(false)}
+        contentContainerStyle={styles.modalContent}
+      >
+        <View>
+          <Text>Picture</Text>
+          
+        </View>
+      </Modal> */}
+
       <ClassInfoHeader
         className="A5"
         courseName="MAS"
@@ -28,7 +86,7 @@ const StudentList = () => {
           fontFamily: "brandon",
         }}
       >
-        Press on a student to view more details
+        Press a student to view more details
       </Text>
       <DataTable>
         <DataTable.Header>
@@ -38,18 +96,18 @@ const StudentList = () => {
           <DataTable.Title numeric>Parent PhoneNum</DataTable.Title>
         </DataTable.Header>
 
-        
-          {students.map((student, index) => {
-            return (
-              <DataTable.Row>
-                <DataTable.Cell><Image source={student.img} style={styles.item}/></DataTable.Cell>
-                <DataTable.Cell>{student.name}</DataTable.Cell>
-                <DataTable.Cell>{student.parentName}</DataTable.Cell>
-                <DataTable.Cell>{student.parentPhone}</DataTable.Cell>
-              </DataTable.Row>
-            );
-          })}
-        
+        {students.map((student) => {
+          return (
+            <DataTable.Row key={student.id} onPress={showInfo}>
+              <DataTable.Cell>
+                <Image source={student.img} style={styles.item} />
+              </DataTable.Cell>
+              <DataTable.Cell>{student.name}</DataTable.Cell>
+              <DataTable.Cell>{student.parentName}</DataTable.Cell>
+              <DataTable.Cell>{student.parentPhone}</DataTable.Cell>
+            </DataTable.Row>
+          );
+        })}
       </DataTable>
     </View>
   );
@@ -58,7 +116,8 @@ const StudentList = () => {
 const styles = StyleSheet.create({
   item: {
     width: 34,
-    height: 34
-  }
-})
+    height: 34,
+  },
+  modalContent: {},
+});
 export default StudentList;
