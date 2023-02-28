@@ -1,56 +1,61 @@
-import React from "react";
+import React, {useState} from "react";
 import { View, Text, Image, ScrollView, StyleSheet } from "react-native";
-import { Table, Row, Rows } from "react-native-table-component";
+import { DataTable } from "react-native-paper";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
 
-const styles1 = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    paddingTop: 30,
-    backgroundColor: "#fff",
-    borderColor: "#ffcccc",
-    textAlign: "center",
-    textAlignVertical: "center",
+const ExampleOne =()=> {
+  const [visibility, setVisibility] = useState(false);
+  const [studentInfo, setStudentInfo] = useState(null);
+
+  const showInfo = (student: any) => {
+    setStudentInfo(student);
+    setVisibility(true);
+    const studentList = new Promise(()=>{
+    });
+
+    return undefined;
+  };
+  return(
+    <DataTable>
+        <DataTable.Header>
+          <DataTable.Title>Test Name</DataTable.Title>
+          <DataTable.Title>Date</DataTable.Title>
+          <DataTable.Title numeric>Grade</DataTable.Title>
+        </DataTable.Header>
+
+        {data.map((student) => {
+          return (
+            <DataTable.Row key={student.id} onPress={showInfo}>
+              <DataTable.Cell>{student.test} </DataTable.Cell>
+              <DataTable.Cell>{student.date}</DataTable.Cell>
+              <DataTable.Cell>{student.grade}</DataTable.Cell>
+            </DataTable.Row>
+          );
+        })}
+      </DataTable>
+  )
+}
+
+const data =[
+  {
+    id: 1,
+    test: "Test 1",
+    date: "14/02/2023",
+    grade: 8,
   },
-  head: { height: 40, backgroundColor: "#ffcccc" },
-  text: { margin: 6 },
-});
-
-interface ExampleOneState {
-  tableHead: string[];
-  tableData: string[][];
-}
-
-export class ExampleOne extends React.Component<{}, ExampleOneState> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      tableHead: ["TestName", "Date", "Value"],
-      tableData: [
-        ["Test1", "14/02/2023", "3"],
-        ["Test2", "15/02/2023", "3"],
-        ["Test3", "16/02/2023", "3"],
-      ],
-    };
-  }
-
-  render() {
-    const state = this.state;
-    return (
-      <View style={styles1.container}>
-        <Table borderStyle={{ borderWidth: 2, borderColor: "#c8e1ff" }}>
-          <Row
-            data={state.tableHead}
-            style={styles1.head}
-            textStyle={styles1.text}
-          />
-          <Rows data={state.tableData} textStyle={styles1.text} />
-        </Table>
-      </View>
-    );
-  }
-}
+  {
+    id: 2,
+    test: "Test 2",
+    date: "14/02/2023",
+    grade: 8,
+  },
+  {
+    id: 3,
+    test: "Test 3",
+    date: "14/02/2023",
+    grade: 9,
+  },
+]
 
 const GradeScreens = ({ navigation }: any) => {
   return (
