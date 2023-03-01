@@ -21,7 +21,6 @@ const HomeScreens = ({ navigation }: any) => {
   );
    const [listClassSearch, setListClassSearch] = useState(listClass);
    const handleSearch = (text : string) => {
-        console.log(text);
         
         setListClassSearch(listClass.filter((e) => {return e.includes(text.toUpperCase())})) 
    }
