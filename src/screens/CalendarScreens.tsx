@@ -7,15 +7,16 @@ const timeToString = (time : number) => {
   const date = new Date(time);
   return date.toISOString().split('T')[0];
 };
+interface intemap {
+  [index: string]: {}[];
+}
 
-const Schedule: React.FC = ({navigation} : any) => {
-  interface intemap {
-    [index: string]: {}[];
- }
- 
+
+const CalendarScreens: React.FC = ({navigation} : any) => {
   const st : intemap = {};
-  const [it,setIt] = useState({})
+  const [listItem,setListItem] = useState({})
   const  [items, setItems] = useState(st);
+  
   const loadItems = (day : DateData) => {
     setTimeout(() => {
       for (let i = -15; i < 85; i++) {
@@ -39,7 +40,7 @@ const Schedule: React.FC = ({navigation} : any) => {
         newItems[key] = items[key];
       });
       setItems(newItems);
-      setIt(newItems);
+      setListItem(newItems);
       
     }, 500);
   };
@@ -69,7 +70,7 @@ const Schedule: React.FC = ({navigation} : any) => {
     <ImageBackground source={require('../../assets/background.jpg')} style={{flex : 1}}>
       <MenuButton onPress={() => navigation.openDrawer()}/>
       <Agenda
-        items={ it}
+        items={ listItem}
         calendarStyle = {{width : '100%', margin : 0}}
         style = {{ marginHorizontal : 10,elevation : 100, borderRadius : 10}}
         loadItemsForMonth={loadItems}
@@ -80,4 +81,4 @@ const Schedule: React.FC = ({navigation} : any) => {
   );
 };
 
-export default Schedule;
+export default CalendarScreens;
