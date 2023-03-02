@@ -93,6 +93,7 @@ const StudentList = () => {
           );
         })}
       </DataTable>
+
       <View>
         {students.map((student, index) => {
           return (
@@ -103,7 +104,6 @@ const StudentList = () => {
                   transparent={true}
                   visible={visibility}
                   onRequestClose={() => setVisibility(false)}
-
                 >
                   <View style={styles.modalView}>
                     <Image source={student.img} style={styles.icon} />
@@ -112,6 +112,7 @@ const StudentList = () => {
                     <Text>{student.parentPhone}</Text>
                     <Text>{student.parentName}</Text>
                   </View>
+                  
                   <TouchableOpacity onPress={() => setVisibility(!visibility)}>
                     <Text>Close</Text>
                   </TouchableOpacity>
