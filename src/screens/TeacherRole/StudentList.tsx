@@ -6,6 +6,7 @@ import {
   Modal,
   TouchableOpacity,
   TouchableWithoutFeedback,
+  Dimensions,
 } from "react-native";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
 import { DataTable, Provider } from "react-native-paper";
@@ -112,14 +113,38 @@ const StudentList = () => {
                   visible={visibility}
                   onRequestClose={() => setVisibility(false)}
                 >
-                  <TouchableOpacity activeOpacity={1} onPressOut={() => setVisibility(false)}>
+                  <TouchableOpacity
+                    activeOpacity={1}
+                    onPressOut={() => setVisibility(false)}
+                  >
                     <TouchableWithoutFeedback>
                       <View style={styles.modalView}>
                         <Image source={student.img} style={styles.icon} />
-                        <Text>{student.name}</Text>
-                        <Text>{student.email}</Text>
-                        <Text>{student.parentPhone}</Text>
-                        <Text>{student.parentName}</Text>
+                        <Text style={styles.modalContent}>
+                          <Text style={{ fontFamily: "brandon-bold" }}>
+                            Name:{" "}
+                          </Text>
+                          {student.name}
+                        </Text>
+
+                        <Text style={styles.modalContent}>
+                          <Text style={{ fontFamily: "brandon-bold" }}>
+                            Email:{" "}
+                          </Text>
+                          {student.email}
+                        </Text>
+                        <Text style={styles.modalContent}>
+                          <Text style={{ fontFamily: "brandon-bold" }}>
+                            Parent Name:{" "}
+                          </Text>
+                          {student.parentName}
+                        </Text>
+                        <Text style={styles.modalContent}>
+                          <Text style={{ fontFamily: "brandon-bold" }}>
+                            Parent Phone Number:{" "}
+                          </Text>
+                          {student.parentPhone}
+                        </Text>
                       </View>
                     </TouchableWithoutFeedback>
                   </TouchableOpacity>
@@ -133,53 +158,60 @@ const StudentList = () => {
   );
 };
 
+var height = Dimensions.get("window").height;
+var width = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   item: {
-    width: 34,
-    height: 34,
-  },
-  modalContent: {
-    zIndex: 3,
+    resizeMode: 'center',
+    height: 40,
+    width: 40,
+    borderWidth: 3,
   },
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 100,
+    position: "absolute",
   },
   icon: {
     width: 150,
     height: 150,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  contentContainer: {
-    justifyContent: "center",
-    alignItems: "center",
+    paddingBottom: 100,
+    borderBottom: 100
+    
   },
   modalView: {
+    marginTop: height * 0.1,
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 35,
+    padding: 20,
     alignItems: "center",
+    justifyContent: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
     },
+    width: width * 0.8,
+    height: height * 0.8,
+    position: "absolute",
+    alignSelf: "center",
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    marginTop: 150,
-    marginBottom: 250,
+  },
+  modalContent: {
+    fontFamily: "brandon",
+    fontSize: 16,
   },
   modalContainer: {
     backgroundColor: "white",
-    width: 350,
+    width: 320,
     height: 300,
     marginTop: 80,
     marginLeft: 33,
+    justifyContent: "space-around",
   },
 });
 export default StudentList;
