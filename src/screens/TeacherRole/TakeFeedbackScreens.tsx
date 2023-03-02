@@ -5,12 +5,9 @@ import {
   ScrollView,
   Button,
   TextInput,
-  Image,
-  StyleSheet,
 } from "react-native";
 import { Modal, Portal, Provider } from "react-native-paper";
-import { DataTable } from "react-native-paper";
-
+import FeedbackTable from "../../components/FeedbackTable";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
 
 const TakeFeedbackScreen = ({ navigation }: any) => {
@@ -59,7 +56,7 @@ const TakeFeedbackScreen = ({ navigation }: any) => {
           onDismiss={hideModal2}
           contentContainerStyle={containerStyle}
         >
-          <View>
+          <View style={{height:280}}>
             <Text
               style={{ fontSize: 25, backgroundColor: "#ffcccc", padding: 10 }}
             >
@@ -69,25 +66,15 @@ const TakeFeedbackScreen = ({ navigation }: any) => {
               Enter class feedbacks:
             </Text>
             <TextInput
-              style={{ height: 40, margin: 12, borderWidth: 1, padding: 10 }}
-              onChangeText={onChangeText}
-              value={text}
+              style={{ height: 40, margin: 12, borderWidth: 1, padding: 10, marginBottom: 48 }}
+              defaultValue="Your Feedback"
             />
-            <View
-              style={{
-                justifyContent: "flex-end",
-                flexDirection: "row",
-                paddingRight: 10,
-              }}
-            >
-              <Button title="Save" color="#ffcccc" />
-            </View>
             <View
               style={{
                 flexDirection: "row",
                 justifyContent: "space-between",
                 marginTop: 25,
-                padding: 10,
+                padding: 10, 
               }}
             >
               <Button title="Person" onPress={hideModal2} color="#ffcccc" />
@@ -134,70 +121,4 @@ const TakeFeedbackScreen = ({ navigation }: any) => {
     </Provider>
   );
 };
-const data = [
-  {
-    id: "01",
-    name: "Hai Xuan",
-    img: { uri: "https://reactjs.org/logo-og.png" },
-    attend: "Absent",
-    feedback: "",
-  },
-  {
-    id: "02",
-    name: "Nguyen Duc",
-    img: { uri: "https://reactjs.org/logo-og.png" },
-    attend: "Absent",
-    feedback: "",
-  },
-  {
-    id: "03",
-    name: "Trinh Tuyen",
-    img: { uri: "https://reactjs.org/logo-og.png" },
-    attend: "Absent",
-    feedback: "Good",
-  },
-];
-
-const FeedbackTable = () => {
-  return (
-    <View>
-      <DataTable>
-        <DataTable.Header>
-          <DataTable.Title>Name</DataTable.Title>
-          <DataTable.Title>Image</DataTable.Title>
-          <DataTable.Title> </DataTable.Title>
-          <DataTable.Title>Feedback</DataTable.Title>
-        </DataTable.Header>
-
-        {data.map((student) => {
-          return (
-            <DataTable.Row key={student.id}>
-              <DataTable.Cell>{student.name}</DataTable.Cell>
-              <DataTable.Cell>
-                <Image source={student.img} style={styles.item} />
-              </DataTable.Cell>
-              <DataTable.Cell>
-                {
-                  <Text style={{ fontSize: 10, color: "red" }}>
-                    {student.attend}
-                  </Text>
-                }
-              </DataTable.Cell>
-              <DataTable.Cell>
-                {student.feedback == "" ? "..." : student.feedback}
-              </DataTable.Cell>
-            </DataTable.Row>
-          );
-        })}
-      </DataTable>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  item: {
-    width: 25,
-    height: 25,
-  },
-});
 export default TakeFeedbackScreen;
