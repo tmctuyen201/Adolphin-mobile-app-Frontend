@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Image, StyleSheet, Modal, TouchableOpacity } from "react-native";
+import {
+  View,
+  Image,
+  StyleSheet,
+  Modal,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from "react-native";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
 import { DataTable, Provider } from "react-native-paper";
 import { Text } from "react-native-paper";
@@ -97,7 +104,7 @@ const StudentList = () => {
       <View>
         {students.map((student, index) => {
           return (
-            <View style={styles.centeredView}>
+            <View style={styles.centeredView} key={index}>
               {id == index && (
                 <Modal
                   animationType="slide"
@@ -105,16 +112,16 @@ const StudentList = () => {
                   visible={visibility}
                   onRequestClose={() => setVisibility(false)}
                 >
-                  <View style={styles.modalView}>
-                    <Image source={student.img} style={styles.icon} />
-                    <Text>{student.name}</Text>
-                    <Text>{student.email}</Text>
-                    <Text>{student.parentPhone}</Text>
-                    <Text>{student.parentName}</Text>
-                  </View>
-                  
-                  <TouchableOpacity onPress={() => setVisibility(!visibility)}>
-                    <Text>Close</Text>
+                  <TouchableOpacity activeOpacity={1} onPressOut={() => setVisibility(false)}>
+                    <TouchableWithoutFeedback>
+                      <View style={styles.modalView}>
+                        <Image source={student.img} style={styles.icon} />
+                        <Text>{student.name}</Text>
+                        <Text>{student.email}</Text>
+                        <Text>{student.parentPhone}</Text>
+                        <Text>{student.parentName}</Text>
+                      </View>
+                    </TouchableWithoutFeedback>
                   </TouchableOpacity>
                 </Modal>
               )}
@@ -165,6 +172,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     marginTop: 150,
+    marginBottom: 250,
   },
   modalContainer: {
     backgroundColor: "white",
