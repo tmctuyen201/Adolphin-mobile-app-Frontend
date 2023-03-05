@@ -13,9 +13,9 @@ interface intemap {
 
 
 const CalendarScreens: React.FC = ({navigation} : any) => {
-  const st : intemap = {};
+  const initItems : intemap = {};
   const [listItem,setListItem] = useState({})
-  const  [items, setItems] = useState(st);
+  const  [items, setItems] = useState(initItems);
   
   const loadItems = (day : DateData) => {
     setTimeout(() => {
@@ -35,7 +35,7 @@ const CalendarScreens: React.FC = ({navigation} : any) => {
         }
       }
       
-      const newItems = st ;
+      const newItems = initItems ;
       Object.keys(items).forEach((key) => {
         newItems[key] = items[key];
       });
