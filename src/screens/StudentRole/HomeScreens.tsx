@@ -1,23 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   View,
   TouchableOpacity,
   ImageBackground,
   SafeAreaView,
   StyleSheet,
+  Touchable,
+  TouchableWithoutFeedback,                                             
 } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import ListItem from "../../components/ListItem";
 import MenuButton from "../../components/MenuButton";
 import SearchBar from "../../components/SearchBar";
 
 const HomeScreens = ({ navigation }: any) => {
+  const [listClass,setListClass] = useState(
+    [
+      "AI 1705", "SE 1746", "IT 1650", "IA 1578", "AI 1746", "SE 1740", "IS 1500", "SE 1733","IA 1544", "SE 1333", 
+    ]
+  );
+   const [listClassSearch, setListClassSearch] = useState(listClass);
+   const handleSearch = (text : string) => {
+        
+        setListClassSearch(listClass.filter((e) => {return e.includes(text.toUpperCase())})) 
+   }
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#343a40" }}>
       <ImageBackground
         source={require("../../../assets/background.jpg")}
         resizeMode="cover"
         style={styles.ImageBackground}
-      >
+        >
         <View style={styles.MenuTouchableContainer}>
           <MenuButton onPress={() => navigation.openDrawer()} />
           <SearchBar onTextChange={() => {}} />
@@ -39,7 +52,18 @@ const HomeScreens = ({ navigation }: any) => {
           <ListItem>IA 1578</ListItem>
           <ListItem>AI 1706</ListItem>
         </View>
+        <ScrollView >
+           {
+             listClassSearch.map((e,index) => {
+                return <TouchableOpacity  key = {index} style={styles.Touchable}
+                onPress={() => navigation.navigate("Tabs")}>
+                   <ListItem key = {index} children = {e}/>
+                </TouchableOpacity>
+             })
+           }
+        </ScrollView>
       </ImageBackground>
+      {/* </TouchableWithoutFeedback> */}
     </SafeAreaView>
   );
 };
