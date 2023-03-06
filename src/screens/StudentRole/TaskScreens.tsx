@@ -1,14 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet, Platform, Dimensions, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, Platform, Dimensions } from 'react-native'
 import { ScrollView } from "react-native-gesture-handler";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
 import { AntDesign } from "@expo/vector-icons";
+import StatusBarLight from "../../components/StatusBarLight";
 
 //TODO Lam` task thanh component ScrollViewItem
 const TaskScreens = ({ navigation }: any) => {
   return (
-    <SafeAreaView style={styles.SafeArea}>
+    
       <View style={{ flex: 1 , backgroundColor: 'white'}}>
+        
         <ClassInfoHeader
           className="1"
           courseName="IS"
@@ -45,10 +47,8 @@ const TaskScreens = ({ navigation }: any) => {
           </ScrollView>
         </View>
       </View>
-    </SafeAreaView>
-
-  );
-};
+  )
+}
 
 export default TaskScreens;
 

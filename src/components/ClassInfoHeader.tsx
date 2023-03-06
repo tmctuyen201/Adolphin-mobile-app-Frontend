@@ -21,7 +21,6 @@ type headerTextProps = {
 };
 
 var width = Dimensions.get("window").width; //full width
-var height = Dimensions.get("window").height; //full height
 
 const ClassInfoHeader = ({
   className,
@@ -31,8 +30,12 @@ const ClassInfoHeader = ({
 }: headerTextProps) => {
   return (
     <View style={styles.header}>
-      <MenuButton onPress={() => navigation.openDrawer()} />
-      <Text style={styles.title}>{title}</Text>
+
+      <View style={styles.headerTitles}>
+        <MenuButton onPress={() => navigation.openDrawer()} />
+        <Text style={styles.title}>{title}</Text>
+      </View>
+      
       <View style={styles.headerText}>
         <Text style={styles.classText}>Class {className}</Text>
         <Text style={styles.courseText}>Course: {courseName}</Text>
@@ -43,28 +46,33 @@ const ClassInfoHeader = ({
 
 const styles = StyleSheet.create({
   title: {
-    fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Thin" : "Roboto",
-    fontSize: 34,
+    
+    fontFamily: "brandon",
+    fontSize: 30,
     color: "#341C26",
   },
   headerText: {
     alignItems: "flex-end",
+    paddingRight: 20
   },
   classText: {
-    fontFamily:
-      Platform.OS === "ios" ? "HelveticaNeue-Light" : "sans-serif-thin",
+    fontFamily:"brandon-bold",
     fontSize: 26,
     color: "#341C26",
   },
   courseText: {
-    fontFamily:
-      Platform.OS === "ios" ? "HelveticaNeue-Thin" : "sans-serif-thin",
+    fontFamily:"brandon-light",
     color: "#341C26",
 
     fontSize: 18,
   },
+  headerTitles:{
+    
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   header: {
-    padding: 14,
+    padding: 0,
     backgroundColor: "#ffafcc",
     height: 80,
     shadowColor: "#6B4B3E",

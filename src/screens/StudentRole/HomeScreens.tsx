@@ -25,8 +25,7 @@ const HomeScreens = ({ navigation }: any) => {
         setListClassSearch(listClass.filter((e) => {return e.includes(text.toUpperCase())})) 
    }
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      {/* <TouchableWithoutFeedback> */}
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#343a40" }}>
       <ImageBackground
         source={require("../../../assets/background.jpg")}
         resizeMode="cover"
@@ -34,7 +33,24 @@ const HomeScreens = ({ navigation }: any) => {
         >
         <View style={styles.MenuTouchableContainer}>
           <MenuButton onPress={() => navigation.openDrawer()} />
-          <SearchBar onTextChange= {handleSearch} />
+          <SearchBar onTextChange={() => {}} />
+        </View>
+        <View style={styles.ListItemContainer}>
+          <TouchableOpacity
+            style={styles.Touchable}
+            onPress={() => navigation.navigate("StudentTab")}
+          >
+            <ListItem>AI 1705</ListItem>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.Touchable}
+            onPress={() => navigation.navigate("TeacherTab")}
+          >
+            <ListItem>SE 1740</ListItem>
+          </TouchableOpacity>
+          <ListItem>IT 1650</ListItem>
+          <ListItem>IA 1578</ListItem>
+          <ListItem>AI 1706</ListItem>
         </View>
         <ScrollView >
            {

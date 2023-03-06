@@ -177,8 +177,8 @@ const styles = StyleSheet.create({
   },
   textView: {
     position: "absolute",
-    fontSize: 22,
-    fontFamily: "Avenir",
+    fontSize: 33,
+    fontFamily: "brandon",
     fontWeight: "600",
     textAlign: "center",
     width: "100%",
