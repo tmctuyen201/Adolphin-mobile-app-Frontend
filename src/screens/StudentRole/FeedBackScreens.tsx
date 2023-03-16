@@ -1,42 +1,72 @@
 import React, { useState } from "react";
-import { View, Text, Image, ScrollView, Button } from "react-native";
+import { View, Text, ScrollView, Button } from "react-native";
 import { Modal, Portal, Provider } from "react-native-paper";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { NavigationContainer } from "@react-navigation/native";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
-
-const Tab = createMaterialTopTabNavigator();
-
-const MyTabs = () => {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Personal" component={PersonFeedback} />
-      <Tab.Screen name="Class" component={ClassFeedback} />
-    </Tab.Navigator>
-  );
-};
 
 const FeedbackScreens = ({ navigation }: any) => {
   const [countAtten, setAtten] = useState(0);
   const [countLesson, setLesson] = useState(3);
-  const [visible, setVisible] = React.useState(false);
 
-  const showModal = () => setVisible(true);
-  const hideModal = () => setVisible(false);
-  const containerStyle = { backgroundColor: "white", padding: 150, margin: 20 };
+  const [visible1, setVisible1] = React.useState(false);
+  const showModal1 = () => setVisible1(true);
+  const hideModal1 = () => setVisible1(false);
+
+  const [visible2, setVisible2] = React.useState(false);
+  const showModal2 = () => setVisible2(true);
+  const hideModal2 = () => setVisible2(false);
+
+  const containerStyle = { backgroundColor: "white", margin: 20 };
 
   return (
     <Provider>
       <Portal>
         <Modal
-          visible={visible}
-          onDismiss={hideModal}
+          visible={visible1}
+          onDismiss={hideModal1}
           contentContainerStyle={containerStyle}
         >
-          <NavigationContainer>
-            <MyTabs />
-          </NavigationContainer>
+          <View>
+            <Text style={{fontSize:25, backgroundColor:"#ffcccc", padding: 10}}>Personal</Text>
+            <Text style={{padding:10}}>No feedback for now 1</Text>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between", marginTop:25, padding:10  }}
+            >
+              <Button 
+              title="Person"
+              disabled
+              color='#ffcccc' />
+              <Button
+                title="Class"
+                onPress={showModal2}
+                color='#ffcccc'
+              />
+            </View>
+          </View>
         </Modal>
+        <Modal
+          visible={visible2}
+          onDismiss={hideModal2}
+          contentContainerStyle={containerStyle}
+        >
+          <View>
+            <Text style={{fontSize:25, backgroundColor:"#ffcccc", padding: 10}}>Class</Text>
+            <Text style={{padding:10}}>No feedback for now 2</Text>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between", marginTop:25, padding:10  }}
+            >
+              <Button 
+              title="Person"
+              onPress={hideModal2}
+              color='#ffcccc' />
+              <Button
+                title="Class"
+                disabled
+                color='#ffcccc'
+              />
+            </View>
+          </View>
+        </Modal>
+        
       </Portal>
       <ScrollView>
         <ClassInfoHeader
@@ -68,7 +98,7 @@ const FeedbackScreens = ({ navigation }: any) => {
             </View>
             <View style={{ alignSelf: "center" }}>
               <Button
-                onPress={showModal}
+                onPress={showModal1}
                 title="View Feedback"
                 color="#F94B4B"
               />
@@ -80,10 +110,4 @@ const FeedbackScreens = ({ navigation }: any) => {
   );
 };
 
-export const PersonFeedback = () => {
-  return <Text>No feedback for now</Text>;
-};
-export const ClassFeedback = () => {
-  return <Text>No feedback for now</Text>;
-};
 export default FeedbackScreens;
