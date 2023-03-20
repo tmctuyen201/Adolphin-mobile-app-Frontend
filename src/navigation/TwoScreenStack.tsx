@@ -4,6 +4,7 @@ import HomeScreens from "../screens/StudentRole/HomeScreens";
 import Task from "../screens/TeacherRole/Lesson/Task";
 import StudentTabs from "./StudentBottomTabs";
 import TeacherTabs from "./TeacherBottomTabs";
+import ParentTabs from "./ParentBottomTabs";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,13 @@ const TwoScreenStack = () => {
       <Stack.Screen
         name="TeacherTab"
         component={TeacherTabs}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ParentTab"
+        component={ParentTabs}
         options={{
           headerShown: false,
         }}
