@@ -31,16 +31,20 @@ const Item = ({ item, onPress, backgroundColor, textColor }: ItemProps) => (
     <Text style={[styles.title, { color: textColor }]}>{item.title}</Text>
   </TouchableOpacity>
 );
+
 const ChooseCourse = ({ navigation }: any) => {
   const [selectedId, setSelectedId] = useState<string>();
   const renderItem = ({ item }: { item: ItemData }) => {
     const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#FFAACF";
     const color = item.id === selectedId ? "white" : "black";
-
+    const OnPressNav = () => {
+      setSelectedId(item.id)
+      navigation.navigate('BottomTab', {})
+    }
     return (
       <Item
         item={item}
-        onPress={() => setSelectedId(item.id)}
+        onPress={() => OnPressNav()}
         backgroundColor={backgroundColor}
         textColor={color}
       />

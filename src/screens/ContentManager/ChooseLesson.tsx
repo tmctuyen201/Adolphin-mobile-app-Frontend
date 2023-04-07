@@ -31,16 +31,19 @@ const Item = ({ item, onPress, backgroundColor, textColor }: ItemProps) => (
     <Text style={[styles.title, { color: textColor }]}>{item.title}</Text>
   </TouchableOpacity>
 );
-const ChooseCourse = ({ navigation }: any) => {
+const ChooseLesson = ({route, navigation }: any) => {
   const [selectedId, setSelectedId] = useState<string>();
   const renderItem = ({ item }: { item: ItemData }) => {
     const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#FFAACF";
     const color = item.id === selectedId ? "white" : "black";
-
+    const OnPressNav = () => {
+      setSelectedId(item.id)
+      navigation.navigate('LessonBottomTab', {})
+    }
     return (
       <Item
         item={item}
-        onPress={() => setSelectedId(item.id)}
+        onPress={() => OnPressNav()}
         backgroundColor={backgroundColor}
         textColor={color}
       />
@@ -63,7 +66,7 @@ const ChooseCourse = ({ navigation }: any) => {
           fontFamily: "brandon",
         }}
       >
-        Press a course to view more details
+        Press a Lesson to view more details
       </Text>
       <FlatList
         data={courses}
@@ -75,7 +78,7 @@ const ChooseCourse = ({ navigation }: any) => {
   );
 };
 
-export default ChooseCourse;
+export default ChooseLesson;
 
 const styles = StyleSheet.create({
   container: {

@@ -5,12 +5,10 @@ import {
     DrawerItemList,
   } from "@react-navigation/drawer";
   import CalendarScreens from "../screens/CalendarScreens";
-  import TwoScreenStack from "./HomeScreenStack";
-  import { Text, View } from "react-native";
   import { AntDesign } from "@expo/vector-icons";
   import { FontAwesome } from "@expo/vector-icons";
   import { Entypo } from "@expo/vector-icons";
-import ChooseCourse from "../screens/ContentManager/ChooseCourse";
+import ContentManagerStack from "../screens/ContentManager/navigation/Stack";
   const Drawer = createDrawerNavigator();
   function CustomDrawerContent(props: any) {
     return (
@@ -50,7 +48,7 @@ import ChooseCourse from "../screens/ContentManager/ChooseCourse";
       >
         <Drawer.Screen
           name="Content Manager"
-          component={ChooseCourse}
+          component={ContentManagerStack}
           options={{
             drawerIcon: () => <Entypo name="home" size={24} color="black" />,
           }}

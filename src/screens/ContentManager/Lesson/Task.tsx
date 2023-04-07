@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, Platform, Dimensions } from 'react-native'
 import { ScrollView } from "react-native-gesture-handler";
-import ClassInfoHeader from "../../components/ClassInfoHeader";
+import ClassInfoHeader from "../../../components/ClassInfoHeader";
 import { AntDesign } from "@expo/vector-icons";
 
 //TODO Lam` task thanh component ScrollViewItem
-const TaskScreens = ({ navigation }: any) => {
+const Tasks = ({ navigation }: any) => {
   return (
     
       <View style={{ flex: 1 , backgroundColor: 'white'}}>
@@ -49,7 +49,7 @@ const TaskScreens = ({ navigation }: any) => {
   )
 }
 
-export default TaskScreens;
+export default Tasks;
 
 const styles = StyleSheet.create({
   taskTitle: {

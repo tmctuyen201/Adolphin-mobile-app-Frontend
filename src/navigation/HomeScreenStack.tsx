@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import HomeScreens from "../screens/StudentRole/HomeScreens";
-import Task from "../screens/TeacherRole/Lesson/Task";
 import StudentTabs from "./StudentBottomTabs";
 import TeacherTabs from "./TeacherBottomTabs";
 import ParentTabs from "./ParentBottomTabs";
