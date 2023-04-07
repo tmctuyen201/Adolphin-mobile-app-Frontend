@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   View,
   TouchableOpacity,
@@ -6,7 +6,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Touchable,
-  TouchableWithoutFeedback,                                             
+  TouchableWithoutFeedback,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import ListItem from "../../components/ListItem";
@@ -30,7 +30,7 @@ const HomeScreens = ({ navigation }: any) => {
         source={require("../../../assets/background.jpg")}
         resizeMode="cover"
         style={styles.ImageBackground}
-        >
+      >
         <View style={styles.MenuTouchableContainer}>
           <MenuButton onPress={() => navigation.openDrawer()} />
           <SearchBar onTextChange={() => {}} />
@@ -58,16 +58,6 @@ const HomeScreens = ({ navigation }: any) => {
           <ListItem>IA 1578</ListItem>
           <ListItem>AI 1706</ListItem>
         </View>
-        <ScrollView >
-           {
-             listClassSearch.map((e,index) => {
-                return <TouchableOpacity  key = {index} style={styles.Touchable}
-                onPress={() => navigation.navigate("Tabs")}>
-                   <ListItem key = {index} children = {e}/>
-                </TouchableOpacity>
-             })
-           }
-        </ScrollView>
       </ImageBackground>
       {/* </TouchableWithoutFeedback> */}
     </SafeAreaView>

@@ -1,8 +1,7 @@
 import React from "react";
-import MyStack from "./src/navigation/stack";
+import MyStack from "./src/navigation/LogInStack";
 import { useFonts } from "expo-font";
 import StatusBarLight from "./src/components/StatusBarLight";
-import StudentList from "./src/screens/TeacherRole/StudentList";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,6 +21,4 @@ export default function App() {
       </>
     );
   }
-
-  return <MyStack />;
 }

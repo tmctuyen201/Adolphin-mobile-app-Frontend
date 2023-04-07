@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import ClassInfoHeader from "../../components/ClassInfoHeader";
 import { DataTable, List, Modal } from "react-native-paper";
-import StatusBarLight from "../../components/StatusBarLight";
 
 const students = [
   {
