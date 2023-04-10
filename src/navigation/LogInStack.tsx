@@ -4,7 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import ChooseRoleScreens from "../screens/ChooseRoleScreens";
 import LogInScreens from "../screens/LogInScreens";
-import MyDrawer from "./drawer";
+import MyDrawer from "./DefaultDrawer";
+import ContentDrawer from "./ContentDrawer";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,11 @@ const MyStack = () => {
         <Stack.Screen
           name="Drawer"
           component={MyDrawer}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ContentDrawer"
+          component={ContentDrawer}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

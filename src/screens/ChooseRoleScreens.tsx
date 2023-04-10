@@ -15,12 +15,14 @@ const images = [
     img: require("../../assets/rolesIcon/student.png"),
     title: "Student",
     color: "#ffafcc",
+    link: "Drawer"
   },
   {
     id: 2,
     img: require("../../assets/rolesIcon/teacher.png"),
     title: "Teacher",
     color: "#a2d2ff",
+    link: "Drawer"
   },
 
   {
@@ -28,12 +30,14 @@ const images = [
     img: require("../../assets/rolesIcon/parent.png"),
     title: "Parent",
     color: "#bde0fe",
+    link: "Drawer"
   },
   {
     id: 4,
     img: require("../../assets/rolesIcon/admin.png"),
-    title: "Admin",
+    title: "Content Manager",
     color: "#cdb4db",
+    link: "ContentDrawer"
   },
 ];
 
@@ -98,7 +102,7 @@ const ChooseRoleScreens = ({navigation}: any) => {
               return (
                   <TouchableOpacity 
                   key = {index}
-                  onPress={() => navigation.navigate("Drawer")} 
+                  onPress={() => navigation.navigate(image.link)} 
                   style = {{width: windowWidth}}
                   activeOpacity = {0.8}>
                     <Image source={image.img} style={styles.card} />

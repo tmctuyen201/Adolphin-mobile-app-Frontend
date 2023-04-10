@@ -30,7 +30,6 @@ const ClassInfoHeader = ({
 }: headerTextProps) => {
   return (
     <View style={styles.header}>
-
       <View style={styles.headerTitles}>
         <MenuButton onPress={() => navigation.openDrawer()} />
         <Text style={styles.title}>{title}</Text>
@@ -84,6 +83,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     maxWidth: width,
+    zIndex: 3,
+    elevation: 12,
+    overflow: 'visible',
   },
   Image: { width: 40, height: 40 },
   MenuTouchable: { padding: 20 },
