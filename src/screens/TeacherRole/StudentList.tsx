@@ -3,6 +3,7 @@ import {
   View,
   Image,
   StyleSheet,
+  Modal,
   TouchableOpacity,
   TouchableWithoutFeedback,
   Dimensions,
@@ -11,7 +12,7 @@ import ClassInfoHeader from "../../components/ClassInfoHeader";
 
 import { Text } from "react-native-paper";
 
-import { DataTable, List, Modal } from "react-native-paper";
+import { DataTable, List } from "react-native-paper";
 
 
 const students = [
