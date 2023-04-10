@@ -13,6 +13,8 @@ import * as Animatable from "react-native-animatable";
 import { useRef, useEffect } from "react";
 import { GestureResponderEvent } from "react-native-modal/dist/types";
 import ChooseClass from "../ChooseClass";
+import Students from "../Students";
+import Teachers from "../Teachers";
 
 const TabArr = [
   {
@@ -27,14 +29,14 @@ const TabArr = [
     label: "Student",
     type: MaterialCommunityIcons,
     icon: "material-design",
-    component: ChooseClass,
+    component: Students,
   },
   {
     route: "Teachers",
     label: "Teacher",
     type: MaterialCommunityIcons,
     icon: "material-ui",
-    component: ChooseClass,
+    component: Teachers,
   },
 ];
 const Tab = createBottomTabNavigator();
