@@ -39,6 +39,13 @@ const images = [
     color: "#cdb4db",
     link: "ContentDrawer"
   },
+  {
+    id: 5,
+    img: require("../../assets/rolesIcon/admin.png"),
+    title: "Admin",
+    color: "#cdb4db",
+    link: "AdminDrawer"
+  },
 ];
 
 const ChooseRoleScreens = ({navigation}: any) => {

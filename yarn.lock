@@ -3039,6 +3039,11 @@ deep-extend@^0.6.0:
   resolved "https://registry.npmjs.org/deep-extend/-/deep-extend-0.6.0.tgz"
   integrity sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==
 
+deepcopy@0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/deepcopy/-/deepcopy-0.6.3.tgz#634780f2f8656ab771af8fa8431ed1ccee55c7b0"
+  integrity sha512-C7P+E1C5q9rF51zPXI2G03/y7mJ5tbjJUpUjhpghwnbCXi8rzsX/y1JzCX8+Oin9vN9E2BT32RCuDw6xEXDw1A==
+
 deepmerge@^3.2.0:
   version "3.3.0"
   resolved "https://registry.npmjs.org/deepmerge/-/deepmerge-3.3.0.tgz"
@@ -3899,6 +3904,13 @@ hyphenate-style-name@^1.0.3:
   version "1.0.4"
   resolved "https://registry.npmjs.org/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
+
+i-@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/i-/-/i--1.1.5.tgz#01cc34f2559deb16b13c11a57752b089a0d81f6e"
+  integrity sha512-lxscbk6hI4LBqlUSK8mj3m41Q9shva0GSGwQljxKmC25L+VJvYXH9fttPOJ6f06P8ExJbtokDwMfOAJjEf68jw==
+  dependencies:
+    deepcopy "0.6.3"
 
 i@^0.3.7:
   version "0.3.7"

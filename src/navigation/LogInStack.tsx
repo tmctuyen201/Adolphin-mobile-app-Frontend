@@ -6,7 +6,7 @@ import ChooseRoleScreens from "../screens/ChooseRoleScreens";
 import LogInScreens from "../screens/LogInScreens";
 import MyDrawer from "./DefaultDrawer";
 import ContentDrawer from "./ContentDrawer";
-
+import AdminDrawer from "./AdminDrawer";
 const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
@@ -33,6 +33,11 @@ const MyStack = () => {
         <Stack.Screen
           name="ContentDrawer"
           component={ContentDrawer}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AdminDrawer"
+          component={AdminDrawer}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
