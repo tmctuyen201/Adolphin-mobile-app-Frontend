@@ -2,6 +2,9 @@ import React from "react";
 import MyStack from "./src/navigation/LogInStack";
 import { useFonts } from "expo-font";
 import StatusBarLight from "./src/components/StatusBarLight";
+import { SafeAreaView, StyleSheet } from "react-native";
+import Constants from "expo-constants";
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -16,9 +19,12 @@ export default function App() {
   else {
     return (
       <>
-        <StatusBarLight />
-        <MyStack />
+        
+          <StatusBarLight />
+          <MyStack />
+        
       </>
     );
   }
 }
+

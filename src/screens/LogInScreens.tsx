@@ -12,7 +12,7 @@ import InputText from "../components/InputText";
 
 const LogInScreens = ({ navigation }: any) => {
   return (
-    <SafeAreaView style={styles.SafeArea}>
+    
       <ImageBackground
         source={require("../../assets/background.jpg")}
         resizeMode="cover"
@@ -44,7 +44,7 @@ const LogInScreens = ({ navigation }: any) => {
           Sign in with google
         </CustomButton>
       </ImageBackground>
-    </SafeAreaView>
+    
   );
 };
 
@@ -69,6 +69,6 @@ const styles = StyleSheet.create({
   },
   SafeArea: {
     flex: 1,
-    backgroundColor: '#343a40',
+    // backgroundColor: '#343a40',
   },
 });

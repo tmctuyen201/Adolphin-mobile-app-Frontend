@@ -7,22 +7,23 @@ import {
   StyleSheet,
   Animated,
   useWindowDimensions,
+  SafeAreaView,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+
 const images = [
   {
     id: 1,
     img: require("../../assets/rolesIcon/student.png"),
     title: "Student",
     color: "#ffafcc",
-    link: "Drawer"
+    link: "Drawer",
   },
   {
     id: 2,
     img: require("../../assets/rolesIcon/teacher.png"),
     title: "Teacher",
     color: "#a2d2ff",
-    link: "Drawer"
+    link: "Drawer",
   },
 
   {
@@ -30,30 +31,32 @@ const images = [
     img: require("../../assets/rolesIcon/parent.png"),
     title: "Parent",
     color: "#bde0fe",
-    link: "Drawer"
+    link: "Drawer",
   },
   {
     id: 4,
     img: require("../../assets/rolesIcon/admin.png"),
     title: "Content Manager",
     color: "#cdb4db",
-    link: "ContentDrawer"
+    link: "ContentDrawer",
   },
   {
     id: 5,
     img: require("../../assets/rolesIcon/admin.png"),
     title: "Admin",
     color: "#cdb4db",
-    link: "AdminDrawer"
+    link: "AdminDrawer",
   },
 ];
 
-const ChooseRoleScreens = ({navigation}: any) => {
+const ChooseRoleScreens = ({ navigation }: any) => {
   const scrollX = useRef(new Animated.Value(0)).current;
   let { width: windowWidth, height: windowHeight } = useWindowDimensions();
   windowHeight = windowHeight - 400;
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#343a40" }}>
+    <>
+      <SafeAreaView style={{ backgroundColor: "white" }}></SafeAreaView>
+
       <View style={styles.container}>
         <View style={styles.textAreaContainer}>
           {images.map((image, imageIndex) => {
@@ -64,7 +67,7 @@ const ChooseRoleScreens = ({navigation}: any) => {
             ];
             return (
               <Animated.Text
-                key = {image.id}
+                key={image.id}
                 style={[
                   styles.textView,
                   {
@@ -107,13 +110,14 @@ const ChooseRoleScreens = ({navigation}: any) => {
           >
             {images.map((image, index) => {
               return (
-                  <TouchableOpacity 
-                  key = {index}
-                  onPress={() => navigation.navigate(image.link)} 
-                  style = {{width: windowWidth}}
-                  activeOpacity = {0.8}>
-                    <Image source={image.img} style={styles.card} />
-                  </TouchableOpacity> 
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => navigation.navigate(image.link)}
+                  style={{ width: windowWidth }}
+                  activeOpacity={0.8}
+                >
+                  <Image source={image.img} style={styles.card} />
+                </TouchableOpacity>
               );
             })}
           </ScrollView>
@@ -143,7 +147,7 @@ const ChooseRoleScreens = ({navigation}: any) => {
           })}
         </View>
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 
@@ -153,6 +157,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#343a40"
   },
   scrollContainer: {
     shadowColor: "#241c26",

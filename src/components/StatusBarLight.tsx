@@ -7,6 +7,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import Constants from "expo-constants";
+import { useTheme } from "@react-navigation/native";
 // import { StatusBar } from "expo-status-bar";
 
 // StatusBar.setBarStyle('dark-content');
@@ -29,13 +30,11 @@ class Statusbar extends Component {
   // }
   render() {
     return (
-      <SafeAreaView>
-        <StatusBar
-          animated={true}
-          backgroundColor="#61dafb"
-          barStyle={"default"}
-        />
-      </SafeAreaView>
+      <StatusBar
+        animated={true}
+        backgroundColor="white"
+        barStyle={"dark-content"}
+      />
     );
   }
 }
@@ -43,7 +42,8 @@ class Statusbar extends Component {
 const styles = StyleSheet.create({
   StatusBar: {
     height: Constants.statusBarHeight,
-    backgroundColor: "#343a40",
+    // backgroundColor: "#343a40",
+    backgroundColor: "#5A5A5A",
   },
 });
 
